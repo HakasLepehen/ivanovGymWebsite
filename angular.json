@@ -30,7 +30,17 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "src/styles/light-theme.css",
+                "bundleName": "light-theme",
+                "inject": false
+              },
+              {
+                "input": "src/styles/dark-theme.css",
+                "bundleName": "dark-theme",
+                "inject": false
+              }
             ],
             "server": "src/main.server.ts",
             "outputMode": "server",
