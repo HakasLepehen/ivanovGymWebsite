@@ -27,6 +27,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "src/styles",
+                "output": "/styles"
               }
             ],
             "styles": [
@@ -68,6 +73,11 @@
               "outputHashing": "all"
             },
             "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            },
+            "gh-pages": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true

@@ -12,7 +12,7 @@
     const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const themeLink = document.createElement('link');
     themeLink.rel = 'stylesheet';
-    themeLink.href = isDark ? 'styles/dark-theme.css' : 'styles/light-theme.css';
+    themeLink.href = (isDark ? 'styles/dark-theme.css' : 'styles/light-theme.css');
     document.head.appendChild(themeLink);
   </script>
 </head>
