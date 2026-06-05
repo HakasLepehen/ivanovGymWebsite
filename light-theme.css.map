@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/styles/light-theme.css"],
+  "sourcesContent": ["/* \u0421\u0432\u0435\u0442\u043B\u0430\u044F \u0442\u0435\u043C\u0430 */\n.main {\n  position: fixed;\n  inset: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #ffffff;\n  color: #1a1a1a;\n}\n"],
+  "mappings": ";AACA,CAAC;AACC,YAAU;AACV,SAAO;AACP,SAAO;AACP,UAAQ;AACR,oBAAkB;AAClB,SAAO;AACT;",
+  "names": []
+}

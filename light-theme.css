@@ -1,0 +1,12 @@
+/* src/styles/light-theme.css */
+.main {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+/* angular:styles/global:light-theme */
+/*# sourceMappingURL=light-theme.css.map */
