@@ -1,0 +1,28 @@
+$white: #ffffff;
+$black: #000000;
+$background-dark: #161616;
+$background-light: #f9f9f9;
+
+// Светлая тема (по умолчанию)
+:root {
+  --theme-text: #{$black};
+  --theme-background: #{$background-light};
+}
+
+// Темная тема (когда JS ставит data-theme="dark")
+:root[data-theme='dark'] {
+  --theme-text: #{$white};
+  --theme-background: #{$background-dark};
+}
+
+$theme-text: var(--theme-text);
+$theme-background: var(--theme-background);
+
+body {
+  color: $theme-text;
+  background-color: $theme-background;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
