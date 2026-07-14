@@ -3,4 +3,7 @@
 @use 'base/normalize';
 @use 'base/typography';
 
-@use 'layout/working';
+@use 'components/button';
+@use 'components/social';
+
+@use 'layout/hero';
