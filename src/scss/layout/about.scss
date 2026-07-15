@@ -1,0 +1,41 @@
+@use '../abstracts/colors' as *;
+
+.about {
+  padding: 60px 60px 40px 60px;
+
+  &__title {
+    margin-top: 7px;
+  }
+
+  &__text {
+    &-info {
+      margin-top: 9px;
+      margin-bottom: 26px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 13px;
+    font-weight: 800;
+
+    &-border {
+      border-top: 1px solid $theme-text-green;
+      margin-top: 27px;
+      padding-top: 26px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding-inline-start: 25px;
+    margin: 0;
+
+    list-style-image: url('/src/assets/arrow.svg');
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+}

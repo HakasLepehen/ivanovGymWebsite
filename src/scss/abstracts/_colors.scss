@@ -1,7 +1,9 @@
 $white: #ffffff;
 $black: #000000;
+$green: #28b80d;
 $background-dark: #161616;
 $background-light: #f9f9f9;
+$background-answer: #10680047;
 $button-color: #39ff14;
 $button-color-light-hover: #7dda6c;
 $button-color-active: #49a238;
@@ -10,16 +12,19 @@ $button-color-disable: #898888;
 // Светлая тема (по умолчанию)
 :root {
   --theme-text: #{$black};
+  --theme-text-green: #{$green};
   --theme-background: #{$background-light};
 }
 
 // Темная тема (когда JS ставит data-theme="dark")
 :root[data-theme='dark'] {
   --theme-text: #{$white};
+  --theme-text-green: #{$button-color};
   --theme-background: #{$background-dark};
 }
 
 $theme-text: var(--theme-text);
+$theme-text-green: var(--theme-text-green);
 $theme-background: var(--theme-background);
 
 body {
