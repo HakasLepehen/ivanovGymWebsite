@@ -1,8 +1,10 @@
 @use '../abstracts/colors' as *;
 
 .hero {
+  box-sizing: border-box;
+
   height: 100vh;
-  padding: 48px 60px;
+  padding: 48px 60px 0;
 
   background-image: image-set(
     url('/src/assets/bg_hero_section.jpg') 1x,
@@ -11,7 +13,11 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  // background-attachment: fixed;
+
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
 
   &__wrapper {
     display: flex;
@@ -35,13 +41,13 @@
 
   // --- Кнопка меню (Гамбургер) ---
   &__menu {
-    position: relative; // Или fixed, если нужно чтобы кнопка ездила со скроллом
+    position: relative;
     width: 35px;
     height: 29px;
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 100; // Кнопка должна быть ВЫШЕ меню
+    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -98,7 +104,7 @@
     justify-content: center;
 
     &.is-active {
-      transform: translate(-50%, 0); // Идеально по центру
+      transform: translate(-50%, 0);
       opacity: 1;
       pointer-events: auto; // Включаем клики, когда меню открыто
     }
@@ -146,8 +152,8 @@
     &-link {
       font-family: var(--font-family-base);
       font-size: clamp(20px, 5vw, 40px);
-      font-weight: 400;
-      color: $theme-text; // Белый текст лучше всего читается на зеленом стекле
+      font-weight: 500;
+      color: $theme-text;
       text-decoration: none;
       text-transform: uppercase;
       letter-spacing: 1px;
@@ -157,7 +163,7 @@
 
       &:hover {
         color: $button-color;
-        text-shadow: 0 0 15px rgba(57, 255, 20, 0.6); // Неоновое свечение
+        text-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
         transform: scale(1.05);
       }
     }
