@@ -86,7 +86,7 @@
         <nav class="hero__nav" id="mainNav" aria-hidden="true">
           <ul class="hero__nav-list">
             <li class="hero__nav-item"><a href="#about" class="hero__nav-link">Обо мне</a></li>
-            <li class="hero__nav-item"><a href="#services" class="hero__nav-link">Консультация</a></li>
+            <li class="hero__nav-item"><a href="#consultation" class="hero__nav-link">Консультация</a></li>
             <li class="hero__nav-item"><a href="#services" class="hero__nav-link">Услуги</a></li>
             <li class="hero__nav-item"><a href="#contacts" class="hero__nav-link">Контакты</a></li>
           </ul>
@@ -111,7 +111,7 @@
         <li class="about__item">Призёр областных соревнований</li>
       </ul>
     </section>
-    <div class="faq">
+    <div class="faq" id="consultation">
       <p class="faq__description"><span>Более 7 лет</span> я помогаю людям обрести тело своей мечты <span>без боли и
           перегруза.</span> Я знаю, какие вопросы часто мешают начать.</p>
       <p class="faq__question">Как вписать тренировки в свой график?</p>
@@ -124,6 +124,65 @@
       <p class="faq__answer">Я даю нагрузку, которая укрепляет здоровье, а не подрывает его, с учётом особенностей
         вашего организма.</p>
     </div>
+    <section class="services" id="services">
+      <h2 class="services__title title">Услуги</h2>
+
+      <div class="services__list">
+        <!-- Карточка 1 -->
+        <article class="services__card">
+          <div class="services__card-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_184_78)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M37.5 60L45 52.5V37.5L51.2134 31.2868C56.8391 25.6607 60 18.0301 60 10.0736V0H49.9264C41.97 0 34.3393 3.16071 28.7132 8.78681L22.5 15H7.5L0 22.5L37.5 60ZM39.375 26.25C42.4815 26.25 45 23.7316 45 20.625C45 17.5184 42.4815 15 39.375 15C36.2684 15 33.75 17.5184 33.75 20.625C33.75 23.7316 36.2684 26.25 39.375 26.25Z"
+                  fill="currentColor" />
+                <path d="M18.4778 51.5845L8.41586 41.5225L0 56.2502L3.75 60.0002L18.4778 51.5845Z"
+                  fill="currentColor" />
+              </g>
+              <defs>
+                <clipPath id="clip0_184_78">
+                  <rect width="60" height="60" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <h3 class="services__card-title">персональные тренировки</h3>
+          <p class="services__card-info">Индивидуальный подход. Корректируем технику и достигаем результатов без травм.
+          </p>
+          <button class="services__card-button button">Записаться</button>
+        </article>
+
+        <!-- Карточка 2 -->
+        <article class="services__card">
+          <div class="services__card-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M48.75 0L60 11.25L33.75 37.5H22.5V26.25L48.75 0Z" fill="currentColor" />
+              <path d="M3.75 3.75V56.25H56.25V33.75H48.75V48.75H11.25V11.25H26.25V3.75H3.75Z" fill="currentColor" />
+            </svg>
+          </div>
+          <h3 class="services__card-title">план тренировок и питания</h3>
+          <p class="services__card-info">Понятная схема упражнений и сбалансированный рацион на недели вперёд.</p>
+          <button class="services__card-button button">Записаться</button>
+        </article>
+
+        <!-- Карточка 3 -->
+        <article class="services__card">
+          <div class="services__card-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11.25 11.25V0H18.75C24.9632 0 30 5.03681 30 11.25C30 5.03681 35.0368 0 41.25 0H48.75V11.25H60V22.5H0V11.25H11.25Z"
+                fill="currentColor" />
+              <path d="M3.75 30H26.25V56.25H3.75V30Z" fill="currentColor" />
+              <path d="M56.25 30H33.75V56.25H56.25V30Z" fill="currentColor" />
+            </svg>
+          </div>
+          <h3 class="services__card-title">бесплатная консультация</h3>
+          <p class="services__card-info">Свяжитесь со мной, чтобы оценить текущую форму и определить цели.
+            Это бесплатно!</p>
+          <button class="services__card-button button">Записаться</button>
+        </article>
+      </div>
+    </section>
   </main>
   <script type="module" src="/src/main.ts"></script>
 </body>

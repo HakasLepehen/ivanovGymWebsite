@@ -1,6 +1,7 @@
 @use 'abstracts/colors';
 
 @use 'base/normalize';
+@use 'base/base';
 @use 'base/typography';
 
 @use 'components/button';
@@ -9,3 +10,4 @@
 @use 'layout/hero';
 @use 'layout/about';
 @use 'layout/faq';
+@use 'layout/services';
