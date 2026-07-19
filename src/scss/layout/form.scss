@@ -1,5 +1,5 @@
 .form {
-  padding: 63px 60px 60px 60px;
+  padding: 66px 60px 60px 60px;
   margin: 0 auto;
 
   background-image:
@@ -47,8 +47,8 @@
     font-size: 20px;
     font-family: var(--font-family-base);
     color: var(--theme-text);
-    background-color: var(--background-dark);
-    border: 1px solid var(--background-dark);
+    background-color: var(--theme-background);
+    border: 1px solid var(--theme-background);
     transition: all 0.3s ease;
 
     &::placeholder {
@@ -64,8 +64,8 @@
     // 2. FOCUS: Зеленая обводка и свечение
     &:focus {
       outline: none;
-      border-color: var(--button-color);
-      box-shadow: 0 0 0 3px rgba(var(--button-color), 0.2);
+      border-color: var(--theme-button-color);
+      box-shadow: 0 0 0 3px rgba(var(--theme-button-color), 0.2);
     }
 
     // 3. DISABLED: Заблокированное состояние
