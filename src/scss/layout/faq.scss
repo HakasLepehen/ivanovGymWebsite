@@ -1,5 +1,3 @@
-@use '../abstracts/colors' as *;
-
 .faq {
   padding-bottom: 60px;
 
@@ -24,7 +22,7 @@
     line-height: 115%;
 
     & span {
-      color: $theme-text-green;
+      color: var(--theme-text-green);
     }
   }
 
@@ -39,7 +37,7 @@
   }
 
   &__answer {
-    background-color: $background-answer;
+    background-color: var(--background-answer);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 

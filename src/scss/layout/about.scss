@@ -1,5 +1,3 @@
-@use '../abstracts/colors' as *;
-
 .about {
   padding: 60px 60px 40px 60px;
 
@@ -19,7 +17,7 @@
     font-weight: 800;
 
     &-border {
-      border-top: 1px solid $theme-text-green;
+      border-top: 1px solid var(--theme-text-green);
       margin-top: 27px;
       padding-top: 26px;
     }
