@@ -35,6 +35,16 @@
       }
     }
 
+    &--footer {
+      width: 40px;
+      height: 40px;
+
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
     &:hover {
       color: $button-color;
       transform: translateY(-3px);

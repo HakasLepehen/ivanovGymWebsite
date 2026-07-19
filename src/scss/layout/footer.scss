@@ -1,0 +1,51 @@
+@use '../abstracts/colors' as *;
+
+.footer {
+  padding: 80px 60px 120px;
+
+  text-transform: uppercase;
+
+  &__nav {
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    &-item {
+      margin-bottom: 41px;
+    }
+
+    &-link {
+      font-size: 20px;
+      line-height: 140%;
+      letter-spacing: 2px;
+      text-decoration: none;
+      color: $theme-text;
+
+      &:hover {
+        color: $button-color;
+        text-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__phone {
+    margin-bottom: 40px;
+
+    &-link {
+      font-size: 20px;
+      line-height: 140%;
+      letter-spacing: 2px;
+      text-decoration: none;
+      color: $theme-text;
+
+      &:hover {
+        color: $button-color;
+        text-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+        transform: scale(1.05);
+      }
+    }
+  }
+}
