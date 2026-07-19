@@ -10,28 +10,26 @@ $button-color-active: #49a238;
 $button-color-disable: #898888;
 $error: #fa2c59;
 
-// Светлая тема (по умолчанию)
-:root {
+// Определяем CSS-переменные для тем
+:root,
+:root[data-theme='light'] {
   --theme-text: #{$black};
   --theme-text-green: #{$green};
   --theme-background: #{$background-light};
 }
 
-// Темная тема (когда JS ставит data-theme="dark")
 :root[data-theme='dark'] {
   --theme-text: #{$white};
   --theme-text-green: #{$button-color};
   --theme-background: #{$background-dark};
+  --theme-button-color: #{$button-color};
+  --theme-color-toggle: #{$black};
 }
 
-$theme-text: var(--theme-text);
-$theme-text-green: var(--theme-text-green);
-$theme-background: var(--theme-background);
-
+// Базовые стили body (используем CSS-переменные напрямую!)
 body {
-  color: $theme-text;
-  background-color: $theme-background;
-
+  color: var(--theme-text);
+  background-color: var(--theme-background);
   transition:
     background-color 0.3s ease,
     color 0.3s ease;

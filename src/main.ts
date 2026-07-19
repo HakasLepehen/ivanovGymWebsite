@@ -1,21 +1,6 @@
 import './style.css';
 
-// --- ЛОГИКА ТЕМЫ ---
-const themeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-function applySystemTheme() {
-  const newTheme = themeMediaQuery.matches ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', newTheme);
-}
-
-// Применяем тему при загрузке JS (страховка)
-applySystemTheme();
-
-// Слушаем изменения темы в ОС/браузере
-themeMediaQuery.addEventListener('change', applySystemTheme);
-
-// --- КНОПКИ МЕНЮ ---
-
+// --- МЕНЮ ---
 const menuToggle = document.getElementById('menuToggle') as HTMLButtonElement;
 const mainNav = document.getElementById('mainNav') as HTMLElement;
 
@@ -111,4 +96,32 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleError(input, false);
     });
   });
+});
+
+// --- ПЕРЕКЛЮЧЕНИЕ ТЕМЫ ---
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggle = document.getElementById(
+    'themeToggle',
+  ) as HTMLButtonElement;
+  const THEME_KEY = 'theme';
+
+  if (themeToggle) {
+    // Функция применения темы
+    const applyTheme = (theme: string) => {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem(THEME_KEY, theme);
+      themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
+    };
+
+    // Обработка клика по переключателю
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+    });
+
+    // Устанавливаем начальное состояние кнопки
+    const initialTheme = document.documentElement.getAttribute('data-theme');
+    themeToggle.setAttribute('aria-pressed', String(initialTheme === 'dark'));
+  }
 });

@@ -18,25 +18,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ivanovgymwebsite</title>
 
-  <style>
-    /* Светлая тема по умолчанию */
-    body {
-      background-color: #f5f5f5;
-      color: #000000;
-    }
+  <script>
+    (function () {
+      const THEME_KEY = 'theme';
+      const savedTheme = localStorage.getItem(THEME_KEY);
 
-    /* Темная тема - применяется сразу, если система темная */
-    :root[data-theme="dark"] body {
-      background-color: #161616;
-      color: #ffffff;
+      console.log('Сохраненная тема:', savedTheme);
+
+      let theme;
+      if (savedTheme) {
+        theme = savedTheme;
+        console.log('Использую сохраненную тему:', theme);
+      } else {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+        console.log('Использую системную тему:', theme);
+      }
+
+      document.documentElement.setAttribute('data-theme', theme);
+      console.log('Атрибут data-theme установлен:', document.documentElement.getAttribute('data-theme'));
+    })();
+  </script>
+
+  <style>
+    body {
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
   </style>
-
-  <script>
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,6 +114,81 @@
       </div>
       <h1 class="hero__title title">тренер сергей иванов</h1>
       <button class="button hero__button">получить консультацию</button>
+      <!-- Переключатель темы -->
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" aria-pressed="false">
+        <!-- Иконка солнца -->
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 65 48" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_dd_10_50)">
+            <path
+              d="M25 4L27.93 14.0213L35.8128 7.17493L32.8598 17.1894L43.1926 15.6917L35.2941 22.5199L44.7964 26.8463L34.4602 28.3203L40.115 37.0972L30.6227 32.749L30.6347 43.1899L25 34.4L19.3653 43.1899L19.3773 32.749L9.88501 37.0972L15.5398 28.3203L5.20357 26.8463L14.7059 22.5199L6.80736 15.6917L17.1402 17.1894L14.1872 7.17493L22.07 14.0213L25 4Z"
+              fill="currentColor" />
+          </g>
+          <g filter="url(#filter1_f_10_50)">
+            <path
+              d="M19.8244 4.68104L25.2483 13.6025L31.0905 4.94922L30.83 15.3868L40.4232 11.2658L34.5611 19.9056L44.8593 21.6252L35.2568 25.7242L42.9905 32.7384L32.6963 30.9952L35.4101 41.0772L27.6925 34.0452L24.5248 43.9939L21.8341 33.9057L13.7906 40.5625L16.9811 30.6211L6.61555 31.8726L14.6743 25.2342L5.27767 20.683L15.6461 19.4553L10.2017 10.5463L19.5879 15.1192L19.8244 4.68104Z"
+              fill="currentColor" />
+          </g>
+          <defs>
+            <filter id="filter0_dd_10_50" x="-18.7969" y="-20" width="83.5938" height="83.1895"
+              filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+              <feOffset dx="-8" dy="-8" />
+              <feGaussianBlur stdDeviation="8" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10_50" />
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+              <feOffset dx="8" dy="8" />
+              <feGaussianBlur stdDeviation="6" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0" />
+              <feBlend mode="normal" in2="effect1_dropShadow_10_50" result="effect2_dropShadow_10_50" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_10_50" result="shape" />
+            </filter>
+            <filter id="filter1_f_10_50" x="-10.7227" y="-11.3193" width="71.582" height="71.3135"
+              filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="8" result="effect1_foregroundBlur_10_50" />
+            </filter>
+          </defs>
+        </svg>
+
+        <!-- Иконка луны -->
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 59 48" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_dd_429_130)">
+            <path
+              d="M34.4375 6C44.3786 6 52.4375 14.0589 52.4375 24C52.4375 33.9411 44.3786 42 34.4375 42C31.3883 42 28.5168 41.2405 26 39.9023C31.6885 36.8778 35.5625 30.8919 35.5625 24C35.5625 17.1079 31.6887 11.1211 26 8.09668C28.5167 6.75866 31.3884 6 34.4375 6Z"
+              fill="currentColor" />
+          </g>
+          <defs>
+            <filter id="filter0_dd_429_130" x="0" y="-20" width="78.4375" height="88" filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB">
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+              <feOffset dx="6" dy="6" />
+              <feGaussianBlur stdDeviation="10" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0.48 0" />
+              <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_429_130" />
+              <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha" />
+              <feOffset dx="-6" dy="-6" />
+              <feGaussianBlur stdDeviation="10" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix type="matrix" values="0 0 0 0 0.87451 0 0 0 0 0.87451 0 0 0 0 0.87451 0 0 0 0.48 0" />
+              <feBlend mode="normal" in2="effect1_dropShadow_429_130" result="effect2_dropShadow_429_130" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_429_130" result="shape" />
+            </filter>
+          </defs>
+        </svg>
+      </button>
     </section>
     <section class="about" id="about">
       <h2 class="about__title title">Обо мне</h2>
