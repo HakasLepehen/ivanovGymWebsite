@@ -183,6 +183,30 @@
         </article>
       </div>
     </section>
+    <section class="form" id="form">
+      <div class="form__container">
+        <h2 class="form__title title">запись на&nbsp;бесплатную консультацию</h2>
+
+        <form class="form__form" id="consultationForm" novalidate>
+          <!-- Поле Имя -->
+          <div class="form__group">
+            <input type="text" id="userName" name="name" class="form__input" placeholder="Ваше имя" required
+              autocomplete="name" aria-invalid="false">
+            <span class="form__error-message" id="nameError">Пожалуйста, введите ваше имя</span>
+          </div>
+
+          <!-- Поле Телефон -->
+          <div class="form__group">
+            <input type="tel" id="userPhone" name="phone" class="form__input" placeholder="Ваш телефон" required
+              autocomplete="tel" aria-invalid="false">
+            <span class="form__error-message" id="phoneError">Введите корректный номер телефона</span>
+          </div>
+
+          <!-- Кнопка отправки -->
+          <button type="submit" class="form__button button">Записаться</button>
+        </form>
+      </div>
+    </section>
   </main>
   <script type="module" src="/src/main.ts"></script>
 </body>
