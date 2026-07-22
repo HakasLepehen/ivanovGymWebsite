@@ -3,7 +3,11 @@
   margin: 0 auto;
 
   background-image:
-    linear-gradient(180deg, #161616 9.41%, rgba(22, 22, 22, 0.4) 105.47%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.4) 9.41%,
+      rgba(255, 255, 255, 0.48) 105.47%
+    ),
     image-set(
       url('/src/assets/bg_form_mobile_section.jpg') 1x,
       url('/src/assets/bg_form_mobile_section@2x.jpg') 2x
@@ -13,6 +17,16 @@
   background-repeat: no-repeat;
 
   box-sizing: border-box;
+
+  // Темная тема
+  :root[data-theme='dark'] & {
+    background-image:
+      linear-gradient(180deg, #161616 9.41%, rgba(22, 22, 22, 0.4) 105.47%),
+      image-set(
+        url('/src/assets/bg_form_mobile_section.jpg') 1x,
+        url('/src/assets/bg_form_mobile_section@2x.jpg') 2x
+      );
+  }
 
   &__title {
     font-size: 18px;
@@ -47,8 +61,8 @@
     font-size: 20px;
     font-family: var(--font-family-base);
     color: var(--theme-text);
-    background-color: var(--theme-background);
-    border: 1px solid var(--theme-background);
+    background-color: var(--theme-form-bg-input);
+    border: 1px solid var(--theme-form-bg-input);
     transition: all 0.3s ease;
 
     &::placeholder {

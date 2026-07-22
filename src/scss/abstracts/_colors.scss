@@ -4,11 +4,14 @@ $green: #28b80d;
 $background-dark: #161616;
 $background-light: #f9f9f9;
 $background-answer: #10680047;
+$background-answer-light: #74ff5a66;
 $button-color: #39ff14;
 $button-color-light-hover: #7dda6c;
 $button-color-active: #49a238;
 $button-color-disable: #898888;
 $error: #fa2c59;
+$form-bg-input-light: #f9f9f966;
+$form-bg-input-dark: #161616;
 
 // Определяем CSS-переменные для тем
 :root,
@@ -16,6 +19,8 @@ $error: #fa2c59;
   --theme-text: #{$black};
   --theme-text-green: #{$green};
   --theme-background: #{$background-light};
+  --theme-background-answer: #{$background-answer-light};
+  --theme-form-bg-input: #{$form-bg-input-light};
 }
 
 :root[data-theme='dark'] {
@@ -24,6 +29,8 @@ $error: #fa2c59;
   --theme-background: #{$background-dark};
   --theme-button-color: #{$button-color};
   --theme-color-toggle: #{$black};
+  --theme-background-answer: #{$background-answer};
+  --theme-form-bg-input: #{$form-bg-input-dark};
 }
 
 // Базовые стили body (используем CSS-переменные напрямую!)

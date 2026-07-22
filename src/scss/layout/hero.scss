@@ -1,35 +1,76 @@
 .hero {
   height: 100vh;
-  padding: 48px 60px 41px;
+  width: 100%;
+  position: relative;
+  color: var(--theme-text);
+  background-color: var(--theme-background);
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  // ==========================================
+  // ФОНОВАЯ КАРТИНКА
+  // ==========================================
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
 
-  background-image: image-set(
-    url('/src/assets/bg_hero_section.jpg') 1x,
-    url('/src/assets/bg_hero_section@2x.jpg') 2x
-  );
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-sizing: border-box;
-  // background-attachment: fixed;
+    // Светлая тема (по умолчанию)
+    background-image: image-set(
+      url('/src/assets/bg_hero_section_white.jpg') 1x,
+      url('/src/assets/bg_hero_section_white@2x.jpg') 2x
+    );
+    background-position: right bottom;
+    background-size: auto 117.3%;
+    background-repeat: no-repeat;
 
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
+    // Темная тема
+    :root[data-theme='dark'] & {
+      height: 100vh;
+
+      background-image: image-set(
+        url('/src/assets/bg_hero_section.jpg') 1x,
+        url('/src/assets/bg_hero_section@2x.jpg') 2x
+      );
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  // ==========================================
+  // КОНТЕНТ (поверх фона)
+  // ==========================================
+  &__container {
+    position: relative;
+    z-index: 1;
+
+    height: 100%;
+    box-sizing: border-box; // 🔥 ВАЖНО: padding включается в высоту, прокрутки не будет
+
+    padding: 48px 60px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   &__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative; // Чтобы позиционировать элементы внутри
   }
 
   &__title {
     padding: 0;
     margin: 0;
+    margin-top: 93px;
+
+    // Темная тема
+    :root[data-theme='dark'] & {
+      margin-top: 0;
+    }
   }
 
   // --- Кнопка меню (Гамбургер) ---
@@ -74,32 +115,27 @@
     position: fixed;
     top: 0;
     left: 50%;
-
     transform: translate(-50%, -60%);
     opacity: 0;
     pointer-events: none;
     width: calc(100% - 120px);
     padding: 120px 40px 80px;
-
     background: rgba(57, 255, 20, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-
     box-shadow:
       0 20px 50px rgba(0, 0, 0, 0.6),
       inset 0 0 30px rgba(57, 255, 20, 0.1);
-
     z-index: 90;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
     display: flex;
     align-items: center;
     justify-content: center;
 
     &.is-active {
-      transform: translate(-50%, 0);
+      transform: translate(-50%, 0); // Центрируем по вертикали
       opacity: 1;
-      pointer-events: auto; // Включаем клики, когда меню открыто
+      pointer-events: auto;
     }
 
     &-list {
@@ -117,11 +153,9 @@
         transform 0.4s ease;
     }
 
-    // Каскадная анимация появления (строго по порядку!)
     &.is-active &-item {
       opacity: 1;
       transform: translateY(0);
-
       &:nth-child(1) {
         transition-delay: 0.1s;
       }
