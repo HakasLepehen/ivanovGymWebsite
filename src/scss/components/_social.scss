@@ -1,0 +1,55 @@
+.social {
+  display: flex;
+  gap: 32px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    color: var(--theme-text);
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+    background-color: transparent;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    &-telegram {
+      width: 41px;
+      height: 35px;
+
+      svg {
+        width: 41px;
+        height: 35px;
+      }
+    }
+
+    &--footer {
+      width: 40px;
+      height: 40px;
+
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &:hover {
+      color: var(--theme-button-color);
+      transform: translateY(-3px);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+}

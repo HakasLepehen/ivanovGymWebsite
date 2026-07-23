@@ -1,4 +1,4 @@
-@use '../abstracts/colors' as *;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500&display=swap');
 
 @font-face {
   font-family: 'HS LunaObscura';
@@ -12,13 +12,25 @@
 
 :root {
   --font-family-title-serif: 'HS LunaObscura', sans-serif;
+  --font-family-base: 'Manrope', sans-serif;
 }
 
 h1 {
   font-family: var(--font-family-title-serif);
-  color: $theme-text;
+  color: var(--theme-text);
   font-weight: 400;
   font-size: 20px;
   text-transform: uppercase;
   text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-family-title-serif);
+  color: var(--theme-text);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 40px;
+  text-align: left;
+  line-height: 140%;
 }

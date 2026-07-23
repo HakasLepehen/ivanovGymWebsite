@@ -1,0 +1,198 @@
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  color: var(--theme-text);
+  background-color: var(--theme-background);
+
+  // ==========================================
+  // ФОНОВАЯ КАРТИНКА
+  // ==========================================
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+
+    // Светлая тема (по умолчанию)
+    background-image: image-set(
+      url('/src/assets/bg_hero_section_white.jpg') 1x,
+      url('/src/assets/bg_hero_section_white@2x.jpg') 2x
+    );
+    background-position: right bottom;
+    background-size: auto 117.3%;
+    background-repeat: no-repeat;
+
+    // Темная тема
+    :root[data-theme='dark'] & {
+      height: 100vh;
+
+      background-image: image-set(
+        url('/src/assets/bg_hero_section.jpg') 1x,
+        url('/src/assets/bg_hero_section@2x.jpg') 2x
+      );
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  // ==========================================
+  // КОНТЕНТ (поверх фона)
+  // ==========================================
+  &__container {
+    position: relative;
+    z-index: 1;
+
+    height: 100%;
+    box-sizing: border-box; // 🔥 ВАЖНО: padding включается в высоту, прокрутки не будет
+
+    padding: 48px 60px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    padding: 0;
+    margin: 0;
+    margin-top: 93px;
+
+    // Темная тема
+    :root[data-theme='dark'] & {
+      margin-top: 0;
+    }
+  }
+
+  // --- Кнопка меню (Гамбургер) ---
+  &__menu {
+    position: relative;
+    width: 35px;
+    height: 29px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+
+    &-line {
+      display: block;
+      width: 100%;
+      height: 6px;
+      background-color: var(--theme-text);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: center;
+    }
+
+    &.is-active {
+      .hero__menu-line:nth-child(1) {
+        transform: translateY(12.5px) rotate(45deg);
+      }
+      .hero__menu-line:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .hero__menu-line:nth-child(3) {
+        transform: translateY(-12.5px) rotate(-45deg);
+      }
+    }
+  }
+
+  // --- Выезжающее меню по центру с зеленым блюром ---
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    opacity: 0;
+    pointer-events: none;
+    width: calc(100% - 120px);
+    padding: 120px 40px 80px;
+    background: rgba(57, 255, 20, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.6),
+      inset 0 0 30px rgba(57, 255, 20, 0.1);
+    z-index: 90;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.is-active {
+      transform: translate(-50%, 0); // Центрируем по вертикали
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    &-item {
+      margin: 24px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+    }
+
+    &.is-active &-item {
+      opacity: 1;
+      transform: translateY(0);
+      &:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      &:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      &:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      &:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      &:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+    }
+
+    &-link {
+      font-family: var(--font-family-base);
+      font-size: clamp(20px, 5vw, 40px);
+      font-weight: 500;
+      color: var(--theme-text);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      position: relative;
+
+      &:hover {
+        color: var(--button-color);
+        text-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+        transform: scale(1.05);
+      }
+    }
+  }
+}

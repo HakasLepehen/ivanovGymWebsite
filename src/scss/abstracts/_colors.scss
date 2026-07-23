@@ -1,27 +1,42 @@
 $white: #ffffff;
 $black: #000000;
+$green: #28b80d;
 $background-dark: #161616;
 $background-light: #f9f9f9;
+$background-answer: #10680047;
+$background-answer-light: #74ff5a66;
+$button-color: #39ff14;
+$button-color-light-hover: #7dda6c;
+$button-color-active: #49a238;
+$button-color-disable: #898888;
+$error: #fa2c59;
+$form-bg-input-light: #f9f9f966;
+$form-bg-input-dark: #161616;
 
-// Светлая тема (по умолчанию)
-:root {
+// Определяем CSS-переменные для тем
+:root,
+:root[data-theme='light'] {
   --theme-text: #{$black};
+  --theme-text-green: #{$green};
   --theme-background: #{$background-light};
+  --theme-background-answer: #{$background-answer-light};
+  --theme-form-bg-input: #{$form-bg-input-light};
 }
 
-// Темная тема (когда JS ставит data-theme="dark")
 :root[data-theme='dark'] {
   --theme-text: #{$white};
+  --theme-text-green: #{$button-color};
   --theme-background: #{$background-dark};
+  --theme-button-color: #{$button-color};
+  --theme-color-toggle: #{$black};
+  --theme-background-answer: #{$background-answer};
+  --theme-form-bg-input: #{$form-bg-input-dark};
 }
 
-$theme-text: var(--theme-text);
-$theme-background: var(--theme-background);
-
+// Базовые стили body (используем CSS-переменные напрямую!)
 body {
-  color: $theme-text;
-  background-color: $theme-background;
-
+  color: var(--theme-text);
+  background-color: var(--theme-background);
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
