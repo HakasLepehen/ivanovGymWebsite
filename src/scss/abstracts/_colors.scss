@@ -4,6 +4,7 @@ $green: #28b80d;
 $background-dark: #161616;
 $background-light: #f9f9f9;
 $background-answer: #10680047;
+$background-answer-table: #58ff3947;
 $background-answer-light: #74ff5a66;
 $button-color: #39ff14;
 $button-color-light-hover: #7dda6c;
@@ -21,6 +22,7 @@ $form-bg-input-dark: #161616;
   --theme-background: #{$background-light};
   --theme-background-answer: #{$background-answer-light};
   --theme-form-bg-input: #{$form-bg-input-light};
+  --theme-background-answer-table: #{$background-answer-table};
 }
 
 :root[data-theme='dark'] {

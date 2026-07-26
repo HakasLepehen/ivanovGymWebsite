@@ -1,14 +1,65 @@
 .about {
   padding: 60px 60px 40px 60px;
 
+  &__inner {
+    display: block;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+  }
+
   &__title {
     margin-top: 7px;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      margin-top: 4px;
+      width: 100%;
+      max-width: 382px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+  }
+
+  &__photo-img {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+      margin-top: 34px;
+      width: 100%;
+      max-width: 382px;
+      height: auto;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (min-width: 1024px) {
+      max-width: 300px;
+    }
   }
 
   &__text {
     &-info {
       margin-top: 9px;
       margin-bottom: 26px;
+
+      @media (min-width: 768px) and (max-width: 1023px) {
+        margin-left: 126px;
+        margin-right: 126px;
+      }
+    }
+  }
+
+  &__box {
+    @media (min-width: 768px) and (max-width: 1023px) {
+      margin: 35px 50px;
+      padding: 44px 76px 54px;
+      border: 2px solid var(--theme-text-green);
     }
   }
 
@@ -16,10 +67,22 @@
     margin-bottom: 13px;
     font-weight: 800;
 
+    @media (min-width: 768px) and (max-width: 1023px) {
+      margin: 0;
+      margin-bottom: 20px;
+    }
+
     &-border {
       border-top: 1px solid var(--theme-text-green);
       margin-top: 27px;
       padding-top: 26px;
+      @media (min-width: 768px) and (max-width: 1023px) {
+        border: none;
+        margin: 0;
+        margin-top: 42px;
+        margin-bottom: 20px;
+        padding: 0;
+      }
     }
   }
 
@@ -27,8 +90,12 @@
     list-style: none;
     padding-inline-start: 25px;
     margin: 0;
-
     list-style-image: url('/src/assets/arrow.svg');
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      padding-inline-start: 0;
+      list-style-image: none;
+    }
   }
 
   &__item {
