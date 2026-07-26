@@ -55,17 +55,18 @@
         <div class="hero__wrapper">
           <!-- Социальные сети -->
           <ul class="social">
-            <!-- Почта -->
+
+            <!-- Telegram -->
             <li class="social__item">
-              <a href="mailto:your-email@example.com" class="social__link" aria-label="Написать на почту">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28H24V32H16C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16V24H16C11.5817 24 8 20.4182 8 16C8 11.5817 11.5817 8 16 8C20.4182 8 24 11.5817 24 16V20H28V16C28 9.37258 22.6274 4 16 4ZM20 20V16C20 13.7909 18.2091 12 16 12C13.7909 12 12 13.7909 12 16C12 18.2091 13.7909 20 16 20H20Z"
+              <a href="https://t.me/your_username" class="social__link social__link-telegram" aria-label="Telegram"
+                target="_blank" rel="noopener noreferrer">
+                <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 3.54102L6.5995 0.000453533L37.8788 0.217394L40.2392 4.61706L23.1221 30.7981L16.5226 34.3387L11.6413 19.9595L22.6405 14.0586L20.2801 9.65889L9.28096 15.5598L0 3.54102Z"
                     fill="currentColor" />
                 </svg>
               </a>
             </li>
-
             <!-- VK -->
             <li class="social__item">
               <a href="https://vk.com/your_id" class="social__link" aria-label="ВКонтакте" target="_blank"
@@ -77,14 +78,12 @@
                 </svg>
               </a>
             </li>
-
-            <!-- Telegram -->
+            <!-- Почта -->
             <li class="social__item">
-              <a href="https://t.me/your_username" class="social__link social__link-telegram" aria-label="Telegram"
-                target="_blank" rel="noopener noreferrer">
-                <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M0 3.54102L6.5995 0.000453533L37.8788 0.217394L40.2392 4.61706L23.1221 30.7981L16.5226 34.3387L11.6413 19.9595L22.6405 14.0586L20.2801 9.65889L9.28096 15.5598L0 3.54102Z"
+              <a href="mailto:your-email@example.com" class="social__link" aria-label="Написать на почту">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28H24V32H16C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16V24H16C11.5817 24 8 20.4182 8 16C8 11.5817 11.5817 8 16 8C20.4182 8 24 11.5817 24 16V20H28V16C28 9.37258 22.6274 4 16 4ZM20 20V16C20 13.7909 18.2091 12 16 12C13.7909 12 12 13.7909 12 16C12 18.2091 13.7909 20 16 20H20Z"
                     fill="currentColor" />
                 </svg>
               </a>
@@ -108,6 +107,8 @@
           </nav>
         </div>
         <h1 class="hero__title title">тренер сергей иванов</h1>
+        <p class="hero__subtitle">Хотите изменить себя, но&nbsp;не&nbsp;знаете, с&nbsp;чего начать? Вы&nbsp;пришли
+          по&nbsp;адресу!</p>
         <button class="button hero__button">получить консультацию</button>
         <!-- Переключатель темы -->
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" aria-pressed="false">
@@ -187,33 +188,49 @@
       </div>
     </section>
     <section class="about" id="about">
-      <h2 class="about__title title">Обо мне</h2>
+      <div class="about__inner">
+        <h2 class="about__title title">Обо мне</h2>
+        <picture>
+          <source srcset="/src/assets/photo_sergey.jpg 1x, /src/assets/photo_sergey@2x.jpg 2x" type="image/jpeg">
+          <img src="/src/assets/photo_sergey.jpg" alt="Сергей Иванов — персональный тренер" class="about__photo-img"
+            loading="lazy" width="382" height="410">
+        </picture>
+      </div>
       <p class="about__text about__text-info">Сергей Иванов, г. Омск</p>
-      <p class="about__subtitle">Образование</p>
-      <ul class="about__list">
-        <li class="about__item">Сибирский Государственный Университет физической культуры и&nbsp;спорта, магистр</li>
-        <li class="about__item">Новосибирская региональная организация «Федерация фитнес-аэробики»,
-          профессиональная переподготовка</li>
-        <li class="about__item">Выпускник московской школы фитнеса «Just be trainer»</li>
-      </ul>
-      <p class="about__subtitle about__subtitle-border">Спортивные достижения</p>
-      <ul class="about__list">
-        <li class="about__item">КМС по жиму штанги лёжа</li>
-        <li class="about__item">Призёр областных соревнований</li>
-      </ul>
+      <div class="about__box">
+        <p class="about__subtitle">Образование</p>
+        <ul class="about__list">
+          <li class="about__item">Сибирский Государственный Университет физической культуры и&nbsp;спорта, магистр</li>
+          <li class="about__item">Новосибирская региональная организация «Федерация фитнес-аэробики»,
+            профессиональная переподготовка</li>
+          <li class="about__item">Выпускник московской школы фитнеса «Just be trainer»</li>
+        </ul>
+        <p class="about__subtitle about__subtitle-border">Спортивные достижения</p>
+        <ul class="about__list">
+          <li class="about__item">КМС по жиму штанги лёжа</li>
+          <li class="about__item">Призёр областных соревнований</li>
+        </ul>
+      </div>
     </section>
     <div class="faq" id="consultation">
       <p class="faq__description"><span>Более 7 лет</span> я помогаю людям обрести тело своей мечты <span>без боли и
           перегруза.</span> Я знаю, какие вопросы часто мешают начать.</p>
-      <p class="faq__question">Как вписать тренировки в свой график?</p>
-      <p class="faq__answer">Я помогу настроить гибкий, но эффективный режим, при необходимости составлю план
-        самостоятельных занятий.</p>
-      <p class="faq__question">Тренировки через боль — не для вас?</p>
-      <p class="faq__answer">Занятия не должны быть изнурительными и вызывать дискомфорт. Я подберу упражнения,
-        доступные для вашего уровня подготовки.</p>
-      <p class="faq__question">Боитесь навредить здоровью?</p>
-      <p class="faq__answer">Я даю нагрузку, которая укрепляет здоровье, а не подрывает его, с учётом особенностей
-        вашего организма.</p>
+      <div class="faq__inner">
+        <p class="faq__question">Как вписать тренировки в свой график?</p>
+        <p class="faq__answer">Я помогу настроить гибкий, но эффективный режим, при необходимости составлю план
+          самостоятельных занятий.</p>
+      </div>
+      <div class="faq__inner">
+        <p class="faq__question">Тренировки через боль — не для вас?</p>
+        <p class="faq__answer">Занятия не должны быть изнурительными и вызывать дискомфорт. Я подберу упражнения,
+          доступные для вашего уровня подготовки.</p>
+      </div>
+      <div class="faq__inner">
+        <p class="faq__question">Боитесь навредить здоровью?</p>
+        <p class="faq__answer">Я даю нагрузку, которая укрепляет здоровье, а не подрывает его, с учётом особенностей
+          вашего организма.</p>
+      </div>
+
     </div>
     <section class="services" id="services">
       <h2 class="services__title title">Услуги</h2>
