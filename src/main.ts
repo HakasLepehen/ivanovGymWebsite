@@ -1,4 +1,5 @@
 import './style.css';
+import IMask from 'imask';
 
 // --- МЕНЮ ---
 const menuToggle = document.getElementById('menuToggle') as HTMLButtonElement;
@@ -32,7 +33,6 @@ if (menuToggle && mainNav) {
 }
 
 // --- ФОРМА ---
-import IMask from 'imask';
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('consultationForm') as HTMLFormElement;
   const nameInput = document.getElementById('userName') as HTMLInputElement;
@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (isValid) {
+      alert('Сайт еще в разработке, Вы можете получить консультацию через контакты указанные вверху страницы');
       // Здесь код отправки данных на сервер (например, fetch)
       console.log('Форма успешно отправлена!', {
         name: nameInput.value,

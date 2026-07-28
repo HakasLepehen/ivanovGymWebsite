@@ -39,7 +39,8 @@
       transform 0.3s ease,
       box-shadow 0.3s ease;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    // @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       border-bottom: 1px solid var(--theme-text-green);
     }
 
