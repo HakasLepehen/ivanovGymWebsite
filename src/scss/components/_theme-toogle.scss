@@ -1,0 +1,99 @@
+.theme-toggle {
+  padding: 0;
+  position: relative;
+  width: 100px;
+  height: 48px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+
+  background: linear-gradient(260deg, #199f00, #39ff14, #199f00);
+  background-size: 200% 100%;
+  background-position: 100% 50%;
+  transition: background-position 0.6s ease;
+
+  &:focus {
+    outline: none;
+  }
+
+  // Бегающая точка (ползунок)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #ffffff; // Белая точка для светлой темы (слева)
+
+    box-shadow:
+      2px -2px 4px rgba(0, 0, 0, 0.4),
+      -4px 6px 6px rgba(0, 0, 0, 0.2),
+      -2px 2px 4px rgba(0, 0, 0, 0.48);
+
+    transition:
+      transform 0.5s cubic-bezier(0.68, -0.2, 0.265, 1.2),
+      background-color 0.5s ease;
+    z-index: 2;
+  }
+
+  // Общие стили для иконок
+  &__icon {
+    position: absolute;
+    top: 50%;
+    width: 68px;
+    height: 68px;
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: all 0.5s cubic-bezier(0.68, -0.2, 0.265, 1.2);
+  }
+
+  // ==========================================
+  // СОСТОЯНИЕ: СВЕТЛАЯ ТЕМА (по умолчанию)
+  // ==========================================
+  // Точка слева (белая), Луна справа (видна)
+  .theme-toggle__icon--sun {
+    left: 10px;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.5) rotate(-90deg);
+    color: #ffffff;
+  }
+
+  .theme-toggle__icon--moon {
+    left: 34px;
+    opacity: 1;
+    transform: translateY(-50%) scale(1) rotate(0);
+    color: #000000; // Черная луна на светлом/зеленом фоне
+  }
+
+  // ==========================================
+  // СОСТОЯНИЕ: ТЕМНАЯ ТЕМА
+  // ==========================================
+  :root[data-theme='dark'] & {
+    // Сдвигаем градиент в исходное положение (плавная анимация)
+    background-position: 0% 50%;
+
+    // Двигаем точку вправо и делаем её черной
+    &::before {
+      transform: translateX(50px);
+      background-color: #000000;
+    }
+
+    // Показываем Солнце слева
+    .theme-toggle__icon--sun {
+      left: 0px;
+      opacity: 1;
+      transform: translateY(-50%) scale(1) rotate(0);
+      color: #ffffff;
+    }
+
+    // Прячем Луну справа
+    .theme-toggle__icon--moon {
+      left: 62px;
+      opacity: 0;
+      transform: translateY(-50%) scale(0.5) rotate(90deg);
+    }
+  }
+}

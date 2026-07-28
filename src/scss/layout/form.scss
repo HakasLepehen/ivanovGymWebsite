@@ -1,0 +1,146 @@
+.form {
+  padding: 66px 60px 60px 60px;
+  margin: 0 auto;
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.4) 9.41%,
+      rgba(255, 255, 255, 0.48) 105.47%
+    ),
+    image-set(
+      url('/src/assets/bg_form_mobile_section.jpg') 1x,
+      url('/src/assets/bg_form_mobile_section@2x.jpg') 2x
+    );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  box-sizing: border-box;
+
+  // Темная тема
+  :root[data-theme='dark'] & {
+    background-image:
+      linear-gradient(180deg, #161616 9.41%, rgba(22, 22, 22, 0.4) 105.47%),
+      image-set(
+        url('/src/assets/bg_form_mobile_section.jpg') 1x,
+        url('/src/assets/bg_form_mobile_section@2x.jpg') 2x
+      );
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 66px 40px 80px;
+  }
+
+  &__title {
+    margin-bottom: 37px;
+
+    font-size: 18px;
+
+    @media (min-width: 400px) {
+      font-size: 28px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      margin-bottom: 60px;
+
+      font-size: 40px;
+      line-height: 128%;
+
+      text-align: center;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      gap: 28px;
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--theme-text);
+  }
+
+  &__input {
+    padding: 20px 40px;
+    font-size: 20px;
+    font-family: var(--font-family-base);
+    color: var(--theme-text);
+    background-color: var(--theme-form-bg-input);
+    border: 1px solid var(--theme-form-bg-input);
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: var(--theme-text);
+      text-transform: uppercase;
+    }
+
+    // 1. HOVER: Легкое изменение границы
+    &:hover:not(:disabled):not(.is-invalid) {
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    // 2. FOCUS: Зеленая обводка и свечение
+    &:focus {
+      outline: none;
+      border-color: var(--theme-button-color);
+      box-shadow: 0 0 0 3px rgba(var(--theme-button-color), 0.2);
+    }
+
+    // 3. DISABLED: Заблокированное состояние
+    &:disabled {
+      background-color: rgba(255, 255, 255, 0.02);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.3);
+      cursor: not-allowed;
+    }
+
+    // 4. INVALID: Состояние ошибки (добавляется через JS)
+    &.is-invalid {
+      border-color: var(--error);
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(255, 77, 79, 0.2);
+      }
+    }
+  }
+
+  &__error-message {
+    font-size: 12px;
+    color: #ff4d4f;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+    position: absolute;
+    bottom: -22px;
+    left: 0;
+
+    // Показываем ошибку, когда у инпута есть класс .is-invalid
+    .is-invalid ~ & {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 22px;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      margin-top: 60px;
+    }
+  }
+}

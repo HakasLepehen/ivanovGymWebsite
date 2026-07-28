@@ -1,0 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: 18px;
+  line-height: 140%;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 24px;
+  }
+}

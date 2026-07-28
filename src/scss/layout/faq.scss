@@ -1,0 +1,110 @@
+.faq {
+  padding-bottom: 60px;
+
+  background-image:
+    linear-gradient(180deg, #f9f9f9 3.32%, rgba(249, 249, 249, 0.32) 99.53%),
+    image-set(
+      url('/src/assets/bg_faq_section.jpg') 1x,
+      url('/src/assets/bg_faq_section@2x.jpg') 2x
+    );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  box-sizing: border-box;
+
+  // Темная тема
+  :root[data-theme='dark'] & {
+    background-image:
+      linear-gradient(180deg, #161616 13.17%, rgba(22, 22, 22, 0.12) 100%),
+      image-set(
+        url('/src/assets/bg_faq_section.jpg') 1x,
+        url('/src/assets/bg_faq_section@2x.jpg') 2x
+      );
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding-bottom: 37px;
+  }
+
+  &__description {
+    padding: 40px 60px 0 60px;
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 115%;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      padding-top: 26px;
+
+      font-size: 32px;
+      line-height: 108%;
+    }
+
+    & span {
+      color: var(--theme-text-green);
+    }
+  }
+
+  &__inner {
+    @media (min-width: 768px) and (max-width: 1023px) {
+      margin: 40px;
+      padding: 32px 28px;
+
+      font-size: 32px;
+      line-height: 108%;
+
+      border: 1px solid;
+      border-radius: 12px;
+      background-color: var(--theme-background-answer-table);
+      border-image-source: linear-gradient(
+        98.89deg,
+        rgba(57, 255, 20, 0.176) 55.36%,
+        rgba(57, 255, 20, 0.4048) 94.55%
+      );
+    }
+  }
+
+  &__question {
+    padding: 0 60px;
+    padding-top: 5px;
+    margin-bottom: 11px;
+
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 115%;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      font-size: 32px;
+      line-height: 108%;
+
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__answer {
+    background-color: var(--theme-background-answer);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    padding: 20px 60px;
+    margin: 0;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      padding: 0;
+      margin-top: 21px;
+
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 140%;
+
+      background-color: transparent;
+
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
+}
