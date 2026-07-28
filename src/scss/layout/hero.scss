@@ -1,0 +1,275 @@
+.hero {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  color: var(--theme-text);
+  background-color: var(--theme-background);
+
+  // ==========================================
+  // ФОНОВАЯ КАРТИНКА
+  // ==========================================
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+
+    // Светлая тема (по умолчанию)
+    background-image: image-set(
+      url('/src/assets/bg_hero_section_white.jpg') 1x,
+      url('/src/assets/bg_hero_section_white@2x.jpg') 2x
+    );
+    background-position: right bottom;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      background-size: cover;
+    }
+
+    // Темная тема
+    :root[data-theme='dark'] & {
+      height: 100vh;
+
+      background-image: image-set(
+        url('/src/assets/bg_hero_section.jpg') 1x,
+        url('/src/assets/bg_hero_section@2x.jpg') 2x
+      );
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  // ==========================================
+  // КОНТЕНТ (поверх фона)
+  // ==========================================
+  &__container {
+    position: relative;
+    z-index: 1;
+
+    height: 100%;
+    box-sizing: border-box;
+
+    padding: 48px 60px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .hero__wrapper {
+        order: 1;
+      }
+
+      .theme-toggle {
+        order: 2;
+      }
+
+      .hero__title,
+      .hero__subtitle,
+      .hero__button {
+        order: 3;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    padding: 0;
+    margin: 0;
+    margin-top: 93px;
+
+    // Темная тема
+    :root[data-theme='dark'] & {
+      margin-top: 0;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      font-size: 80px;
+      background: linear-gradient(
+        69.83deg,
+        #000000 30.92%,
+        #28b80d 54%,
+        #21d300 70.98%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    :root[data-theme='dark'] & {
+      background: none;
+      color: var(--theme-text);
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  &__subtitle {
+    display: none;
+    margin: 0;
+
+    font-weight: 500;
+    line-height: 128%;
+    text-transform: uppercase;
+    color: var(--theme-text);
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      :root[data-theme='dark'] & {
+        display: block;
+        max-width: 558px;
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+  }
+
+  &__button {
+    @media (min-width: 768px) {
+      padding: 28px 75px;
+      max-width: 480px;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 108%;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      :root[data-theme='dark'] & {
+        align-self: center;
+        margin-top: 32px;
+      }
+    }
+  }
+
+  // --- Кнопка меню (Гамбургер) ---
+  &__menu {
+    position: relative;
+    width: 35px;
+    height: 29px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+
+    &-line {
+      display: block;
+      width: 100%;
+      height: 6px;
+      background-color: var(--theme-text);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: center;
+    }
+
+    &.is-active {
+      .hero__menu-line:nth-child(1) {
+        transform: translateY(12.5px) rotate(45deg);
+      }
+      .hero__menu-line:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .hero__menu-line:nth-child(3) {
+        transform: translateY(-12.5px) rotate(-45deg);
+      }
+    }
+  }
+
+  // --- Выезжающее меню по центру с зеленым блюром ---
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    opacity: 0;
+    pointer-events: none;
+    width: calc(100% - 120px);
+    padding: 120px 40px 80px;
+    background-color: rgba(57, 255, 20, 0.1);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    will-change: backdrop-filter;
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.6),
+      inset 0 0 30px rgba(57, 255, 20, 0.1);
+    z-index: 90;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.is-active {
+      transform: translate(-50%, 0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    &-item {
+      margin: 24px 0;
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+    }
+
+    &.is-active &-item {
+      opacity: 1;
+      transform: translateY(0);
+      &:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+      &:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      &:nth-child(4) {
+        transition-delay: 0.4s;
+      }
+      &:nth-child(5) {
+        transition-delay: 0.5s;
+      }
+      &:nth-child(6) {
+        transition-delay: 0.6s;
+      }
+    }
+
+    &-link {
+      font-family: var(--font-family-base);
+      font-size: clamp(20px, 5vw, 40px);
+      font-weight: 500;
+      color: var(--theme-text);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      position: relative;
+
+      &:hover {
+        color: var(--button-color);
+        text-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+        transform: scale(1.05);
+      }
+    }
+  }
+}

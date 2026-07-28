@@ -1,6 +1,16 @@
 @use 'abstracts/colors';
 
 @use 'base/normalize';
+@use 'base/base';
 @use 'base/typography';
 
-@use 'layout/working';
+@use 'components/button';
+@use 'components/social';
+@use 'components/theme-toogle';
+
+@use 'layout/hero';
+@use 'layout/about';
+@use 'layout/faq';
+@use 'layout/services';
+@use 'layout/form';
+@use 'layout/footer';
