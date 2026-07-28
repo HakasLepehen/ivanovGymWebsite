@@ -3,41 +3,375 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <!-- favicon universale -->
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+
+  <!-- PNG per tab classiche -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/favicon-512x512.png">
+
+  <!-- SVG + dark/light -->
+  <link rel="icon" href="/favicons/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="/favicons/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ivanovgymwebsite</title>
+  <title>Сергей Иванов. Персональный тренер</title>
+
+  <script>
+    (function () {
+      const THEME_KEY = 'theme';
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      let theme;
+      if (savedTheme) {
+        theme = savedTheme;
+      } else {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+      }
+
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 
   <style>
-    /* Светлая тема по умолчанию */
     body {
-      background-color: #f5f5f5;
-      color: #000000;
-    }
-
-    /* Темная тема - применяется сразу, если система темная */
-    :root[data-theme="dark"] body {
-      background-color: #161616;
-      color: #ffffff;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
   </style>
 
-  <script>
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="preload" href="/fonts/HS_LunaObscura.woff2" as="font" type="font/woff2" crossorigin />
-  <script type="module" crossorigin src="/assets/index-b_9eJjcv.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DofBuzTO.css">
+  <script type="module" crossorigin src="/assets/index-D_4D75Cl.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CLSU2nzI.css">
 </head>
 
 <body>
   <main>
-    <section class="working">
-      <h1>Страница находится в&nbsp;разработке</h1>
+    <section class="hero">
+      <div class="hero__container">
+        <div class="hero__wrapper">
+          <!-- Социальные сети -->
+          <ul class="social">
+
+            <!-- Telegram -->
+            <li class="social__item">
+              <a href="https://t.me/+79334436454" class="social__link social__link-telegram" aria-label="Telegram"
+                target="_blank" rel="noopener noreferrer">
+                <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 3.54102L6.5995 0.000453533L37.8788 0.217394L40.2392 4.61706L23.1221 30.7981L16.5226 34.3387L11.6413 19.9595L22.6405 14.0586L20.2801 9.65889L9.28096 15.5598L0 3.54102Z"
+                    fill="currentColor" />
+                </svg>
+              </a>
+            </li>
+            <!-- VK -->
+            <li class="social__item">
+              <a href="https://vk.ru/sergey_iv_trener" class="social__link" aria-label="ВКонтакте" target="_blank"
+                rel="noopener noreferrer">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 0V32H32V0H0ZM14.2051 8.55664C15.1111 8.54725 15.9973 8.64771 16.4297 8.66016C18.0323 8.70629 18.3154 9.51688 18.2949 10.1836C18.2649 11.1601 17.6367 15.2905 18.8008 15.6934C20.497 14.7863 21.6345 11.9691 22.4629 10.1836C22.8819 9.28045 22.8156 9.23557 23.7812 9.23437L27.6171 9.22851C28.5409 9.22736 28.5049 9.19496 28.8008 9.57227C29.489 10.4498 26.6289 14.1001 25.705 15.1094C24.0003 16.972 24.9949 17.6933 25.2695 17.9492C26.5418 19.1354 27.7711 20.3655 28.5351 21.5C29.1426 22.4019 28.8917 23.2417 28.1191 23.2734L24.0058 23.4434C22.6409 23.4995 20.5185 21.0526 20.1797 20.5195C19.9057 20.0798 18.5853 19.5287 18.4609 20.6523L18.2871 22.2206C18.1608 23.3417 17.3331 23.3156 16.6797 23.3437C12.1552 23.5383 10.6143 21.8157 8.33589 19.2733C6.666 16.9117 5.07243 14.5366 3.75192 11.6913C3.35667 10.8396 3.14731 10.2149 3.09371 9.55264C3.75813 9.03333 6.09032 9.25701 7.65621 9.22256C8.08451 9.21312 8.37349 9.45853 8.59957 9.94717C9.48173 11.8542 10.4438 13.7269 11.7168 15.3827C12.2711 15.8933 12.7612 16.0811 13.0058 15.0429C13.1479 15.0298 13.1365 13.3105 13.1445 12.0136C13.15 11.1231 13.0454 10.0551 11.5371 9.5624C11.8422 8.76269 13.0402 8.56872 14.2051 8.55664Z"
+                    fill="currentColor" />
+                </svg>
+              </a>
+            </li>
+            <!-- Почта -->
+            <li class="social__item">
+              <a href="mailto:your-email@example.com" class="social__link" aria-label="Написать на почту">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28H24V32H16C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16V24H16C11.5817 24 8 20.4182 8 16C8 11.5817 11.5817 8 16 8C20.4182 8 24 11.5817 24 16V20H28V16C28 9.37258 22.6274 4 16 4ZM20 20V16C20 13.7909 18.2091 12 16 12C13.7909 12 12 13.7909 12 16C12 18.2091 13.7909 20 16 20H20Z"
+                    fill="currentColor" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+          <!-- Кнопка меню (гамбургер) -->
+          <button class="hero__menu" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+            <span class="hero__menu-line"></span>
+            <span class="hero__menu-line"></span>
+            <span class="hero__menu-line"></span>
+          </button>
+
+          <!-- Выезжающее меню -->
+          <nav class="hero__nav" id="mainNav" aria-hidden="true">
+            <ul class="hero__nav-list">
+              <li class="hero__nav-item"><a href="#about" class="hero__nav-link">Обо мне</a></li>
+              <li class="hero__nav-item"><a href="#consultation" class="hero__nav-link">Консультация</a></li>
+              <li class="hero__nav-item"><a href="#services" class="hero__nav-link">Услуги</a></li>
+              <li class="hero__nav-item"><a href="#contacts" class="hero__nav-link">Контакты</a></li>
+            </ul>
+          </nav>
+        </div>
+        <h1 class="hero__title title">тренер сергей иванов</h1>
+        <p class="hero__subtitle">Хотите изменить себя, но&nbsp;не&nbsp;знаете, с&nbsp;чего начать? Вы&nbsp;пришли
+          по&nbsp;адресу!</p>
+        <a href="#form" class="button hero__button">получить консультацию</a>
+        <!-- Переключатель темы -->
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" aria-pressed="false">
+          <!-- Иконка солнца -->
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 65 48" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_dd_10_50)">
+              <path
+                d="M25 4L27.93 14.0213L35.8128 7.17493L32.8598 17.1894L43.1926 15.6917L35.2941 22.5199L44.7964 26.8463L34.4602 28.3203L40.115 37.0972L30.6227 32.749L30.6347 43.1899L25 34.4L19.3653 43.1899L19.3773 32.749L9.88501 37.0972L15.5398 28.3203L5.20357 26.8463L14.7059 22.5199L6.80736 15.6917L17.1402 17.1894L14.1872 7.17493L22.07 14.0213L25 4Z"
+                fill="currentColor" />
+            </g>
+            <g filter="url(#filter1_f_10_50)">
+              <path
+                d="M19.8244 4.68104L25.2483 13.6025L31.0905 4.94922L30.83 15.3868L40.4232 11.2658L34.5611 19.9056L44.8593 21.6252L35.2568 25.7242L42.9905 32.7384L32.6963 30.9952L35.4101 41.0772L27.6925 34.0452L24.5248 43.9939L21.8341 33.9057L13.7906 40.5625L16.9811 30.6211L6.61555 31.8726L14.6743 25.2342L5.27767 20.683L15.6461 19.4553L10.2017 10.5463L19.5879 15.1192L19.8244 4.68104Z"
+                fill="currentColor" />
+            </g>
+            <defs>
+              <filter id="filter0_dd_10_50" x="-18.7969" y="-20" width="83.5938" height="83.1895"
+                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha" />
+                <feOffset dx="-8" dy="-8" />
+                <feGaussianBlur stdDeviation="8" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10_50" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha" />
+                <feOffset dx="8" dy="8" />
+                <feGaussianBlur stdDeviation="6" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0" />
+                <feBlend mode="normal" in2="effect1_dropShadow_10_50" result="effect2_dropShadow_10_50" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_10_50" result="shape" />
+              </filter>
+              <filter id="filter1_f_10_50" x="-10.7227" y="-11.3193" width="71.582" height="71.3135"
+                filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                <feGaussianBlur stdDeviation="8" result="effect1_foregroundBlur_10_50" />
+              </filter>
+            </defs>
+          </svg>
+
+          <!-- Иконка луны -->
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 59 48" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_dd_429_130)">
+              <path
+                d="M34.4375 6C44.3786 6 52.4375 14.0589 52.4375 24C52.4375 33.9411 44.3786 42 34.4375 42C31.3883 42 28.5168 41.2405 26 39.9023C31.6885 36.8778 35.5625 30.8919 35.5625 24C35.5625 17.1079 31.6887 11.1211 26 8.09668C28.5167 6.75866 31.3884 6 34.4375 6Z"
+                fill="currentColor" />
+            </g>
+            <defs>
+              <filter id="filter0_dd_429_130" x="0" y="-20" width="78.4375" height="88" filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha" />
+                <feOffset dx="6" dy="6" />
+                <feGaussianBlur stdDeviation="10" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0 0.875 0 0 0 0.48 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_429_130" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                  result="hardAlpha" />
+                <feOffset dx="-6" dy="-6" />
+                <feGaussianBlur stdDeviation="10" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0.87451 0 0 0 0 0.87451 0 0 0 0 0.87451 0 0 0 0.48 0" />
+                <feBlend mode="normal" in2="effect1_dropShadow_429_130" result="effect2_dropShadow_429_130" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_429_130" result="shape" />
+              </filter>
+            </defs>
+          </svg>
+        </button>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <div class="about__inner">
+        <h2 class="about__title title">Обо мне</h2>
+        <picture>
+          <source srcset="/assets/photo_sergey-DKBPpNC6.jpg 1x, /assets/photo_sergey@2x-CCZqr7Ah.jpg 2x" type="image/jpeg">
+          <img src="/assets/photo_sergey-DKBPpNC6.jpg" alt="Сергей Иванов — персональный тренер" class="about__photo-img"
+            loading="lazy" width="382" height="410">
+        </picture>
+      </div>
+      <p class="about__text about__text-info">Сергей Иванов, г. Омск</p>
+      <div class="about__box">
+        <p class="about__subtitle">Образование</p>
+        <ul class="about__list">
+          <li class="about__item">Сибирский Государственный Университет физической культуры и&nbsp;спорта, магистр</li>
+          <li class="about__item">Новосибирская региональная организация «Федерация фитнес-аэробики»,
+            профессиональная переподготовка</li>
+          <li class="about__item">Выпускник московской школы фитнеса «Just be trainer»</li>
+        </ul>
+        <p class="about__subtitle about__subtitle-border">Спортивные достижения</p>
+        <ul class="about__list">
+          <li class="about__item">КМС по жиму штанги лёжа</li>
+          <li class="about__item">Призёр областных соревнований</li>
+        </ul>
+      </div>
+    </section>
+    <div class="faq" id="consultation">
+      <p class="faq__description"><span>Более 7 лет</span> я помогаю людям обрести тело своей мечты <span>без боли и
+          перегруза.</span> Я знаю, какие вопросы часто мешают начать.</p>
+      <div class="faq__inner">
+        <p class="faq__question">Как вписать тренировки в свой график?</p>
+        <p class="faq__answer">Я помогу настроить гибкий, но эффективный режим, при необходимости составлю план
+          самостоятельных занятий.</p>
+      </div>
+      <div class="faq__inner">
+        <p class="faq__question">Тренировки через боль — не для вас?</p>
+        <p class="faq__answer">Занятия не должны быть изнурительными и вызывать дискомфорт. Я подберу упражнения,
+          доступные для вашего уровня подготовки.</p>
+      </div>
+      <div class="faq__inner">
+        <p class="faq__question">Боитесь навредить здоровью?</p>
+        <p class="faq__answer">Я даю нагрузку, которая укрепляет здоровье, а не подрывает его, с учётом особенностей
+          вашего организма.</p>
+      </div>
+
+    </div>
+    <section class="services" id="services">
+      <h2 class="services__title title">Услуги</h2>
+
+      <div class="services__list">
+        <!-- Карточка 1 -->
+        <article class="services__card">
+          <div class="services__card-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_184_78)">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M37.5 60L45 52.5V37.5L51.2134 31.2868C56.8391 25.6607 60 18.0301 60 10.0736V0H49.9264C41.97 0 34.3393 3.16071 28.7132 8.78681L22.5 15H7.5L0 22.5L37.5 60ZM39.375 26.25C42.4815 26.25 45 23.7316 45 20.625C45 17.5184 42.4815 15 39.375 15C36.2684 15 33.75 17.5184 33.75 20.625C33.75 23.7316 36.2684 26.25 39.375 26.25Z"
+                  fill="currentColor" />
+                <path d="M18.4778 51.5845L8.41586 41.5225L0 56.2502L3.75 60.0002L18.4778 51.5845Z"
+                  fill="currentColor" />
+              </g>
+              <defs>
+                <clipPath id="clip0_184_78">
+                  <rect width="60" height="60" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <h3 class="services__card-title">персональные тренировки</h3>
+          <p class="services__card-info">Индивидуальный подход. Корректируем технику и достигаем результатов без травм.
+          </p>
+          <a href="#form" class="services__card-button button">Записаться</a>
+        </article>
+
+        <!-- Карточка 2 -->
+        <article class="services__card">
+          <div class="services__card-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M48.75 0L60 11.25L33.75 37.5H22.5V26.25L48.75 0Z" fill="currentColor" />
+              <path d="M3.75 3.75V56.25H56.25V33.75H48.75V48.75H11.25V11.25H26.25V3.75H3.75Z" fill="currentColor" />
+            </svg>
+          </div>
+          <h3 class="services__card-title">план тренировок и питания</h3>
+          <p class="services__card-info">Понятная схема упражнений и сбалансированный рацион на недели вперёд.</p>
+          <a href="#form" class="services__card-button button">Записаться</a>
+        </article>
+
+        <!-- Карточка 3 -->
+        <article class="services__card">
+          <div class="services__card-icon">
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11.25 11.25V0H18.75C24.9632 0 30 5.03681 30 11.25C30 5.03681 35.0368 0 41.25 0H48.75V11.25H60V22.5H0V11.25H11.25Z"
+                fill="currentColor" />
+              <path d="M3.75 30H26.25V56.25H3.75V30Z" fill="currentColor" />
+              <path d="M56.25 30H33.75V56.25H56.25V30Z" fill="currentColor" />
+            </svg>
+          </div>
+          <h3 class="services__card-title">бесплатная консультация</h3>
+          <p class="services__card-info">Свяжитесь со мной, чтобы оценить текущую форму и определить цели.
+            Это бесплатно!</p>
+          <a href="#form" class="services__card-button button">Записаться</a>
+        </article>
+      </div>
+    </section>
+    <section class="form" id="form">
+      <div class="form__container">
+        <h2 class="form__title title">запись на&nbsp;бесплатную консультацию</h2>
+
+        <form class="form__form" id="consultationForm" novalidate>
+          <!-- Поле Имя -->
+          <div class="form__group">
+            <input type="text" id="userName" name="name" class="form__input" placeholder="Ваше имя" required
+              autocomplete="name" aria-invalid="false">
+            <span class="form__error-message" id="nameError">Пожалуйста, введите ваше имя</span>
+          </div>
+
+          <!-- Поле Телефон -->
+          <div class="form__group">
+            <input type="tel" id="userPhone" name="phone" class="form__input" placeholder="Ваш телефон" required
+              autocomplete="tel" aria-invalid="false">
+            <span class="form__error-message" id="phoneError">Введите корректный номер телефона</span>
+          </div>
+
+          <!-- Кнопка отправки -->
+          <button type="submit" class="form__button button">Записаться</button>
+        </form>
+      </div>
     </section>
   </main>
+  <footer class="footer">
+    <nav class="footer__nav" id="mainNav" aria-hidden="true">
+      <ul class="footer__nav-list">
+        <li class="footer__nav-item"><a href="#about" class="footer__nav-link">Обо мне</a></li>
+        <li class="footer__nav-item"><a href="#services" class="footer__nav-link">Услуги</a></li>
+        <li class="footer__nav-item"><a href="#consultation" class="footer__nav-link">Консультация</a></li>
+        <li class="footer__nav-item"><a href="#contacts" class="footer__nav-link">Контакты</a></li>
+      </ul>
+    </nav>
+    <div class="footer__phone">
+      <a href="tel:+79334436454" class="footer__phone-link" aria-label="Позвонить по телефону +7 933 443 64 54">
+        <span class="footer__phone-number">+7 933 443-64-54</span>
+      </a>
+    </div>
+    <!-- Социальные сети -->
+    <ul class="social">
+      <!-- Telegram -->
+      <li class="social__item">
+        <a href="https://t.me/+79334436454" class="social__link social__link-telegram social__link--footer"
+          aria-label="Telegram" target="_blank" rel="noopener noreferrer">
+          <svg width="41" height="35" viewBox="0 0 41 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0 3.54102L6.5995 0.000453533L37.8788 0.217394L40.2392 4.61706L23.1221 30.7981L16.5226 34.3387L11.6413 19.9595L22.6405 14.0586L20.2801 9.65889L9.28096 15.5598L0 3.54102Z"
+              fill="currentColor" />
+          </svg>
+        </a>
+      </li>
+
+      <!-- VK -->
+      <li class="social__item">
+        <a href="https://vk.ru/sergey_iv_trener" class="social__link social__link--footer" aria-label="ВКонтакте"
+          target="_blank" rel="noopener noreferrer">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0 0V32H32V0H0ZM14.2051 8.55664C15.1111 8.54725 15.9973 8.64771 16.4297 8.66016C18.0323 8.70629 18.3154 9.51688 18.2949 10.1836C18.2649 11.1601 17.6367 15.2905 18.8008 15.6934C20.497 14.7863 21.6345 11.9691 22.4629 10.1836C22.8819 9.28045 22.8156 9.23557 23.7812 9.23437L27.6171 9.22851C28.5409 9.22736 28.5049 9.19496 28.8008 9.57227C29.489 10.4498 26.6289 14.1001 25.705 15.1094C24.0003 16.972 24.9949 17.6933 25.2695 17.9492C26.5418 19.1354 27.7711 20.3655 28.5351 21.5C29.1426 22.4019 28.8917 23.2417 28.1191 23.2734L24.0058 23.4434C22.6409 23.4995 20.5185 21.0526 20.1797 20.5195C19.9057 20.0798 18.5853 19.5287 18.4609 20.6523L18.2871 22.2206C18.1608 23.3417 17.3331 23.3156 16.6797 23.3437C12.1552 23.5383 10.6143 21.8157 8.33589 19.2733C6.666 16.9117 5.07243 14.5366 3.75192 11.6913C3.35667 10.8396 3.14731 10.2149 3.09371 9.55264C3.75813 9.03333 6.09032 9.25701 7.65621 9.22256C8.08451 9.21312 8.37349 9.45853 8.59957 9.94717C9.48173 11.8542 10.4438 13.7269 11.7168 15.3827C12.2711 15.8933 12.7612 16.0811 13.0058 15.0429C13.1479 15.0298 13.1365 13.3105 13.1445 12.0136C13.15 11.1231 13.0454 10.0551 11.5371 9.5624C11.8422 8.76269 13.0402 8.56872 14.2051 8.55664Z"
+              fill="currentColor" />
+          </svg>
+        </a>
+      </li>
+
+      <!-- Почта -->
+      <li class="social__item">
+        <a href="mailto:your-email@example.com" class="social__link social__link--footer"
+          aria-label="Написать на почту">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28H24V32H16C7.16344 32 0 24.8366 0 16C0 7.16344 7.16344 0 16 0C24.8366 0 32 7.16344 32 16V24H16C11.5817 24 8 20.4182 8 16C8 11.5817 11.5817 8 16 8C20.4182 8 24 11.5817 24 16V20H28V16C28 9.37258 22.6274 4 16 4ZM20 20V16C20 13.7909 18.2091 12 16 12C13.7909 12 12 13.7909 12 16C12 18.2091 13.7909 20 16 20H20Z"
+              fill="currentColor" />
+          </svg>
+        </a>
+      </li>
+
+    </ul>
+  </footer>
 </body>
 
 </html>
