@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="yandex-verification" content="47dec2bc4aff49eb" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow, noai, noimageai">
+  <meta name="googlebot" content="notranslate">
+  <title>Политика конфиденциальности</title>
+  <!-- favicon universale -->
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon">
+
+  <!-- PNG per tab classiche -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicons/favicon-512x512.png">
+
+  <!-- SVG + dark/light -->
+  <link rel="icon" href="/favicons/favicon-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="/favicons/favicon-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+  <script>
+    (function () {
+      const THEME_KEY = 'theme';
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      let theme;
+      if (savedTheme) {
+        theme = savedTheme;
+      } else {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+      }
+
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+    
+</body>
+</html>
