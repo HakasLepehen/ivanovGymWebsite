@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Сбрасываем предыдущие ошибки
     toggleError(nameInput, false);
     toggleError(phoneInput, false);
-    window.open('./agreement', '_blank');
 
     // Валидация имени (минимум 2 символа)
     if (nameInput.value.trim().length < 2) {
