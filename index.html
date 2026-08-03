@@ -41,17 +41,18 @@
   </script>
 
   <!-- Yandex.Metrika counter -->
-  <script
+  <!-- <script
     type="text/javascript">     (function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } } k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=111105207', 'ym'); ym(111105207, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true }); </script>
   <noscript>
     <div><img src="https://mc.yandex.ru/watch/111105207" style="position:absolute; left:-9999px;" alt="" /></div>
-  </noscript> <!-- /Yandex.Metrika counter -->
+  </noscript>  -->
+  <!-- /Yandex.Metrika counter -->
 
-  <style>
+  <!-- <style>
     body {
       transition: background-color 0.3s ease, color 0.3s ease;
     }
-  </style>
+  </style> -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -322,6 +323,20 @@
             <span class="form__error-message" id="phoneError">Введите корректный номер телефона</span>
           </div>
 
+          <div class="form__group annotation">
+            <div class="consent-group">
+              <input type="checkbox" id="consent" name="consent" class="consent-checkbox" required
+                aria-describedby="consent-text">
+              <label for="consent" id="consent-text" class="consent-text">
+                Я даю
+                <a href="./agreement" target="_blank">согласие на обработку персональных данных</a>
+                в соответствии с
+                <a href="./policies" target="_blank">Политикой конфиденциальности</a>
+                об обработке персональных данных и отправлении формы обратной связи
+              </label>
+            </div>
+          </div>
+
           <!-- Кнопка отправки -->
           <button type="submit" class="form__button button">Записаться</button>
         </form>
@@ -381,6 +396,12 @@
       </li>
 
     </ul>
+    <hr>
+
+    <div>
+      <span>© </span>
+      <span>Иванов Сергей Александрович (ИНН 220705629300)</span>
+    </div>
   </footer>
   <script type="module" src="/src/main.ts"></script>
 </body>
