@@ -19,8 +19,8 @@
     height: 100vh;
     z-index: 0;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
-      bottom: -136px;
+    @media (min-width: 768px) {
+      height: calc(100vh - 136px);
     }
 
     // Светлая тема (по умолчанию)
@@ -32,14 +32,29 @@
     background-size: auto 100%;
     background-repeat: no-repeat;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       background-size: cover;
+    }
+
+    @media (min-width: 1024px) {
+      background-position: center;
+      background-size: auto 100%;
+      background-image:
+        image-set(
+          url('/src/assets/bg_hero_light.jpg') 1x,
+          url('/src/assets/bg_hero_light@2x.jpg') 2x
+        ),
+        linear-gradient(
+          to right,
+          #f1f1f1 0%,
+          #f1f1f1 50%,
+          #696969 50%,
+          #696969 100%
+        );
     }
 
     // Темная тема
     :root[data-theme='dark'] & {
-      height: 100vh;
-
       background-image: image-set(
         url('/src/assets/bg_hero_dark_mobile.jpg') 1x,
         url('/src/assets/bg_hero_dark_mobile@2x.jpg') 2x
@@ -47,7 +62,7 @@
       background-position: center;
       background-size: cover;
 
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (min-width: 768px) {
         background-image: image-set(
           url('/src/assets/bg_hero_dark_table.jpg') 1x,
           url('/src/assets/bg_hero_dark_table@2x.jpg') 2x
@@ -72,7 +87,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       padding: 0;
       @include mixins.section-container;
 
@@ -124,10 +139,15 @@
       .theme-toggle {
         order: 2;
         @include mixins.section-container;
+
+        :root[data-theme='dark'] & {
+          margin-top: -177px;
+        }
       }
 
       .hero__title {
         order: 3;
+        margin-top: 0;
         margin-left: 40px;
 
         :root[data-theme='dark'] & {
@@ -150,14 +170,15 @@
 
         :root[data-theme='dark'] & {
           margin-left: 0;
+          margin-top: 0;
+          margin-bottom: 40px;
           padding: 28px 75px;
         }
       }
 
       .social {
         order: 6;
-        margin-top: 100px;
-        margin-bottom: -60px;
+        margin-bottom: 60px;
         gap: 48px;
 
         :root[data-theme='dark'] & {
@@ -186,9 +207,13 @@
     // Темная тема
     :root[data-theme='dark'] & {
       margin-top: 0;
+      background: none;
+      color: var(--theme-text);
+      text-align: center;
+      width: 100%;
     }
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       font-size: 80px;
       background: linear-gradient(
         69.83deg,
@@ -201,11 +226,8 @@
       color: transparent;
     }
 
-    :root[data-theme='dark'] & {
-      background: none;
-      color: var(--theme-text);
-      text-align: center;
-      width: 100%;
+    @media (min-width: 1024px) {
+      max-width: 480px;
     }
   }
 
@@ -218,7 +240,7 @@
     text-transform: uppercase;
     color: var(--theme-text);
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       :root[data-theme='dark'] & {
         display: block;
         max-width: 558px;
@@ -237,7 +259,7 @@
       line-height: 108%;
     }
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       :root[data-theme='dark'] & {
         align-self: center;
         margin-top: 32px;

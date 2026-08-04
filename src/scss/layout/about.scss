@@ -4,7 +4,7 @@
   &__inner {
     display: block;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -15,7 +15,7 @@
   &__title {
     margin-top: 7px;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       margin-top: 4px;
       width: 100%;
       max-width: 382px;
@@ -48,7 +48,7 @@
       margin-top: 9px;
       margin-bottom: 26px;
 
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (min-width: 768px) {
         margin-left: 126px;
         margin-right: 126px;
       }
@@ -56,7 +56,7 @@
   }
 
   &__box {
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       margin: 35px 50px;
       padding: 44px 76px 54px;
       border: 2px solid var(--theme-text-green);
@@ -67,7 +67,7 @@
     margin-bottom: 13px;
     font-weight: 800;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       margin: 0;
       margin-bottom: 20px;
     }
@@ -76,7 +76,7 @@
       border-top: 1px solid var(--theme-text-green);
       margin-top: 27px;
       padding-top: 26px;
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (min-width: 768px) {
         border: none;
         margin: 0;
         margin-top: 42px;
@@ -92,7 +92,7 @@
     margin: 0;
     list-style-image: url('/src/assets/arrow.svg');
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       padding-inline-start: 0;
       list-style-image: none;
     }
