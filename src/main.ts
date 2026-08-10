@@ -1,5 +1,6 @@
 import './style.css';
 import IMask from 'imask';
+import { initModal } from './modal.js';
 
 // --- МЕНЮ ---
 const menuToggle = document.getElementById('menuToggle') as HTMLButtonElement;
@@ -34,6 +35,8 @@ if (menuToggle && mainNav) {
 
 // --- ФОРМА ---
 document.addEventListener('DOMContentLoaded', () => {
+  initModal();
+
   const form = document.getElementById('consultationForm') as HTMLFormElement;
   const nameInput = document.getElementById('userName') as HTMLInputElement;
   const phoneInput = document.getElementById('userPhone') as HTMLInputElement;
