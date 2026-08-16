@@ -1,5 +1,6 @@
 import './style.css';
 import IMask from 'imask';
+import { initModal } from './modal.js';
 
 // --- МЕНЮ ---
 const menuToggle = document.getElementById('menuToggle') as HTMLButtonElement;
@@ -34,9 +35,22 @@ if (menuToggle && mainNav) {
 
 // --- ФОРМА ---
 document.addEventListener('DOMContentLoaded', () => {
+  initModal();
+
   const form = document.getElementById('consultationForm') as HTMLFormElement;
   const nameInput = document.getElementById('userName') as HTMLInputElement;
   const phoneInput = document.getElementById('userPhone') as HTMLInputElement;
+  const consentCheckbox = document.getElementById('consent') as HTMLInputElement;
+
+  const submitButton = form.querySelector('.form__button') as HTMLButtonElement;
+  if (submitButton) {
+    submitButton.disabled = !consentCheckbox.checked;
+  }
+  consentCheckbox.addEventListener('change', () => {
+    if (submitButton) {
+      submitButton.disabled = !consentCheckbox.checked;
+    }
+  });
 
   // 1. Инициализация маски для российского телефона
   const phoneMask = IMask(phoneInput, {
@@ -77,12 +91,18 @@ document.addEventListener('DOMContentLoaded', () => {
       isValid = false;
     }
 
+    // Валидация согласия на обработку персональных данных
+    if (!consentCheckbox.checked) {
+      isValid = false;
+    }
+
     if (isValid) {
       alert('Сайт еще в разработке, Вы можете получить консультацию через контакты указанные вверху страницы');
       // Здесь код отправки данных на сервер (например, fetch)
       console.log('Форма успешно отправлена!', {
         name: nameInput.value,
         phone: phoneMask.value,
+        consent: consentCheckbox.checked,
       });
 
       // Очистка формы после успешной отправки
@@ -92,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 3. Убираем ошибку, как только пользователь начинает исправлять поле
-  [nameInput, phoneInput].forEach((input) => {
+  [nameInput, phoneInput, consentCheckbox].forEach((input) => {
     input.addEventListener('input', () => {
       toggleError(input, false);
     });
