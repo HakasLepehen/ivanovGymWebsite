@@ -1,3 +1,5 @@
+@use '../abstracts/mixins' as mixins;
+
 .faq {
   padding-bottom: 60px;
 
@@ -23,7 +25,7 @@
       );
   }
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 768px) {
     padding-bottom: 37px;
   }
 
@@ -35,11 +37,16 @@
     font-weight: 700;
     line-height: 115%;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       padding-top: 26px;
 
       font-size: 32px;
       line-height: 108%;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 0 168px 37px;
+      font-size: 40px;
     }
 
     & span {
@@ -48,7 +55,7 @@
   }
 
   &__inner {
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       margin: 40px;
       padding: 32px 28px;
 
@@ -64,6 +71,12 @@
         rgba(57, 255, 20, 0.4048) 94.55%
       );
     }
+
+    @media (min-width: 1024px) {
+      margin: 0 128px;
+      margin-bottom: 40px;
+      padding: 40px;
+    }
   }
 
   &__question {
@@ -75,12 +88,16 @@
     font-weight: 700;
     line-height: 115%;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       font-size: 32px;
       line-height: 108%;
 
       margin: 0;
       padding: 0;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 40px;
     }
   }
 
@@ -93,7 +110,7 @@
     padding: 20px 60px;
     margin: 0;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       padding: 0;
       margin-top: 21px;
 
@@ -105,6 +122,10 @@
 
       backdrop-filter: none;
       -webkit-backdrop-filter: none;
+    }
+
+    @media (min-width: 1024px) {
+      background-color: transparent;
     }
   }
 }
