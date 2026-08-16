@@ -1,7 +1,9 @@
+@use '../abstracts/mixins' as mixins;
+
 .about {
   padding: 60px 60px 40px 60px;
 
-  &__inner {
+  &__inner:first-child {
     display: block;
 
     @media (min-width: 768px) {
@@ -36,10 +38,6 @@
       height: auto;
       object-fit: cover;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    }
-
-    @media (min-width: 1024px) {
-      max-width: 300px;
     }
   }
 
@@ -76,6 +74,7 @@
       border-top: 1px solid var(--theme-text-green);
       margin-top: 27px;
       padding-top: 26px;
+
       @media (min-width: 768px) {
         border: none;
         margin: 0;
@@ -101,6 +100,50 @@
   &__item {
     &:not(:last-child) {
       margin-bottom: 15px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: minmax(382px, 0.4fr) minmax(400px, 1.6fr);
+    @include mixins.section-container;
+    position: relative;
+
+    &__inner {
+      grid-column: 1;
+      margin-bottom: 0;
+      z-index: 2;
+
+      .about__title {
+        margin: 0;
+        max-width: 382px;
+        text-align: left;
+      }
+
+      .about__photo-img {
+        margin-top: 24px;
+        margin-left: 0;
+        max-width: 382px;
+      }
+    }
+
+    &__content {
+      grid-column: 2;
+      margin-top: 70px;
+      margin-left: -40px;
+      position: relative;
+      z-index: 1;
+      background-color: var(--theme-background);
+
+      .about__text-info {
+        margin: 0 0 32px 76px;
+      }
+
+      .about__box {
+        margin: 0;
+        // padding: 44px 76px 54px;
+        border: 2px solid var(--theme-text-green);
+      }
     }
   }
 }
