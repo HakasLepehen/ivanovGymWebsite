@@ -6,6 +6,7 @@ $background-light: #f9f9f9;
 $background-answer: #10680047;
 $background-answer-table: #58ff3947;
 $background-answer-light: #74ff5a66;
+$background-answer-dark: #39ff1466;
 $button-color: #39ff14;
 $social-bg-color: #39ff1466;
 $button-color-light-hover: #7dda6c;
@@ -37,6 +38,7 @@ $form-bg-input-dark: #161616;
   --theme-color-toggle: #{$black};
   --theme-background-answer: #{$background-answer};
   --theme-form-bg-input: #{$form-bg-input-dark};
+  --theme-background-answer-table: #{$background-answer-dark};
 }
 
 // Базовые стили body (используем CSS-переменные напрямую!)

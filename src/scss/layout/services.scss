@@ -37,8 +37,9 @@
     }
 
     @media (min-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
+      margin: 0;
 
+      grid-template-columns: repeat(3, 1fr);
       gap: 136px;
     }
   }

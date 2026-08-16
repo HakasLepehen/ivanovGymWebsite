@@ -74,6 +74,16 @@
       margin: 0 128px;
       margin-bottom: 40px;
       padding: 40px;
+
+      // Темная тема
+      :root[data-theme='dark'] & {
+        border: 1px solid;
+        border-image-source: linear-gradient(
+          98.89deg,
+          rgba(57, 255, 20, 0.176) 55.36%,
+          rgba(57, 255, 20, 0.4048) 94.55%
+        );
+      }
     }
   }
 

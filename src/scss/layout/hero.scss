@@ -135,6 +135,10 @@
 
         :root[data-theme='dark'] & {
           margin-top: -177px;
+
+          @media (min-width: 1024px) {
+            margin-top: 0;
+          }
         }
       }
 
