@@ -7,6 +7,7 @@ $background-answer: #10680047;
 $background-answer-table: #58ff3947;
 $background-answer-light: #74ff5a66;
 $button-color: #39ff14;
+$social-bg-color: #39ff1466;
 $button-color-light-hover: #7dda6c;
 $button-color-active: #49a238;
 $button-color-disable: #898888;
@@ -15,7 +16,10 @@ $form-bg-input-light: #f9f9f966;
 $form-bg-input-dark: #161616;
 
 // Определяем CSS-переменные для тем
-:root,
+:root {
+  --social-bg-color: #{$social-bg-color};
+}
+
 :root[data-theme='light'] {
   --theme-text: #{$black};
   --theme-text-green: #{$green};

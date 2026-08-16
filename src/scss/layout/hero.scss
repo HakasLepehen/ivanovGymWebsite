@@ -37,20 +37,14 @@
     }
 
     @media (min-width: 1024px) {
-      background-position: center;
+      background-position: center right;
       background-size: auto 100%;
       background-image:
         image-set(
           url('/src/assets/bg_hero_light.jpg') 1x,
           url('/src/assets/bg_hero_light@2x.jpg') 2x
         ),
-        linear-gradient(
-          to right,
-          #f1f1f1 0%,
-          #f1f1f1 50%,
-          #696969 50%,
-          #696969 100%
-        );
+        linear-gradient(to right, #f1f1f1 0%, #f1f1f1 100%);
     }
 
     // Темная тема
@@ -138,7 +132,6 @@
 
       .theme-toggle {
         order: 2;
-        @include mixins.section-container;
 
         :root[data-theme='dark'] & {
           margin-top: -177px;
@@ -154,16 +147,22 @@
           margin-left: 0;
           margin-top: 130px;
         }
+
+        @media (min-width: 1024px) {
+          margin-left: 0;
+        }
       }
 
       .hero__subtitle {
         display: block;
-        order: 4;
         margin-left: 40px;
+
+        @media (min-width: 1024px) {
+          margin-left: 0;
+        }
       }
 
       .hero__button {
-        order: 5;
         margin-top: 32px;
         margin-left: 40px;
         padding: 28px 0;
@@ -173,6 +172,10 @@
           margin-top: 0;
           margin-bottom: 40px;
           padding: 28px 75px;
+        }
+
+        @media (min-width: 1024px) {
+          margin: 0;
         }
       }
 
@@ -184,6 +187,30 @@
         :root[data-theme='dark'] & {
           order: 2;
           align-self: flex-end;
+        }
+
+        @media (min-width: 1024px) {
+          order: 3;
+          flex-direction: column;
+          position: absolute;
+          top: 263px;
+          right: 0;
+
+          border-radius: 12px 0 0 12px;
+          border: 1px solid transparent;
+          border-right: 0;
+          padding: 34px 40px;
+          gap: 48px;
+
+          background:
+            linear-gradient(var(--social-bg-color), var(--social-bg-color))
+              padding-box,
+            linear-gradient(
+                87.83deg,
+                rgba(57, 255, 20, 0.8) 0.79%,
+                rgba(255, 255, 255, 0.8) 38.94%
+              )
+              border-box;
         }
       }
 
@@ -213,11 +240,27 @@
       width: 100%;
     }
 
+    &-first {
+      display: inline;
+
+      @media (min-width: 1024px) {
+        display: inline;
+      }
+    }
+
+    &-break {
+      display: none;
+
+      @media (min-width: 1024px) {
+        display: block;
+      }
+    }
+
     @media (min-width: 768px) {
       font-size: 80px;
       background: linear-gradient(
         69.83deg,
-        #000000 30.92%,
+        #000000 20.92%,
         #28b80d 54%,
         #21d300 70.98%
       );
@@ -225,22 +268,47 @@
       background-clip: text;
       color: transparent;
     }
+  }
+
+  &__content-row {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: 768px) {
+      order: 4;
+    }
 
     @media (min-width: 1024px) {
-      max-width: 480px;
+      margin-bottom: 75px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    // (≥ 1240px): в одну строку
+    @media (min-width: 1240px) {
+      margin-bottom: 100px;
+      order: 4;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      width: 100%;
     }
   }
 
   &__subtitle {
     display: none;
     margin: 0;
-
     font-weight: 500;
     line-height: 128%;
     text-transform: uppercase;
     color: var(--theme-text);
 
-    @media (min-width: 768px) {
+    // Планшет
+    @media (min-width: 768px) and (max-width: 1023px) {
       :root[data-theme='dark'] & {
         display: block;
         max-width: 558px;
@@ -248,18 +316,34 @@
         text-align: center;
       }
     }
+
+    // ДЕСКТОП: показываем и сбрасываем order
+    @media (min-width: 1024px) {
+      display: block;
+      order: 0; // Сбрасываем order, чтобы flex управлял порядком
+      margin-top: 0;
+      max-width: 558px;
+      flex-shrink: 0; // Чтобы текст не сжимался
+    }
   }
 
   &__button {
     @media (min-width: 768px) {
       padding: 28px 75px;
-      max-width: 480px;
+      min-width: 480px;
       font-weight: 500;
       font-size: 24px;
       line-height: 108%;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
+      order: 0;
+      margin: 0;
+      align-self: auto;
+      flex-shrink: 0;
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
       :root[data-theme='dark'] & {
         align-self: center;
         margin-top: 32px;
