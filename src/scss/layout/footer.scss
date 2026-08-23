@@ -1,58 +1,114 @@
+@use '../abstracts/mixins' as mixins;
+
 .footer {
   padding: 80px 60px 120px;
-
+  @include mixins.section-container;
   text-transform: uppercase;
 
-  &__nav {
-    &-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+  @media (max-width: 1023px) {
+    .footer__wrapper {
+      display: flex;
+      flex-direction: column;
     }
 
-    &-item {
+    .footer__col {
+      margin-bottom: 40px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .footer__link {
+      display: block;
       margin-bottom: 41px;
-    }
-
-    &-link {
       font-size: 20px;
       line-height: 140%;
       letter-spacing: 2px;
       text-decoration: none;
       color: var(--theme-text);
+      transition: all 0.3s ease;
 
       &:hover {
         color: var(--button-color);
         text-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
-        transform: scale(1.05);
+        transform: translateX(10px);
       }
 
       @media (min-width: 768px) and (max-width: 1023px) {
         font-weight: 500;
         font-size: 24px;
+      }
+    }
+
+    .footer__socials {
+      display: flex;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      margin-top: 40px;
+
+      .social__link {
+        color: var(--theme-text);
+        transition:
+          color 0.3s ease,
+          transform 0.3s ease;
+
+        &:hover {
+          color: var(--button-color);
+          transform: translateY(-3px);
+        }
       }
     }
   }
 
-  &__phone {
-    margin-bottom: 40px;
+  @media (min-width: 1024px) {
+    .footer__wrapper {
+      display: flex;
+      gap: 60px;
+    }
 
-    &-link {
+    .footer__col {
+      display: flex;
+      flex-direction: column;
+      gap: 41px;
+    }
+
+    .footer__link {
       font-size: 20px;
       line-height: 140%;
       letter-spacing: 2px;
       text-decoration: none;
       color: var(--theme-text);
+      transition: all 0.3s ease;
+      width: max-content;
 
       &:hover {
         color: var(--button-color);
         text-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
-        transform: scale(1.05);
+        transform: translateX(10px);
       }
+    }
 
-      @media (min-width: 768px) and (max-width: 1023px) {
-        font-weight: 500;
-        font-size: 24px;
+    .footer__socials {
+      display: flex;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      justify-content: flex-start;
+
+      .social__link {
+        color: var(--theme-text);
+        transition:
+          color 0.3s ease,
+          transform 0.3s ease;
+
+        &:hover {
+          color: var(--button-color);
+          transform: translateY(-3px);
+        }
       }
     }
   }
