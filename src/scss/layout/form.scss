@@ -1,10 +1,20 @@
+@use '../abstracts/mixins' as mixins;
+
 .form {
-  padding: 66px 60px 60px 60px;
+  padding: 66px 0 60px 0;
+  @include mixins.section-container;
   margin: 0 auto;
 
   background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.4) 9.41%, rgba(255, 255, 255, 0.48) 105.47%),
-    image-set(url("/src/assets/bg_form_mobile_section.jpg") 1x, url("/src/assets/bg_form_mobile_section@2x.jpg") 2x);
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.4) 9.41%,
+      rgba(255, 255, 255, 0.48) 105.47%
+    ),
+    image-set(
+      url('/src/assets/bg_form.jpg') 1x,
+      url('/src/assets/bg_form@2x.jpg') 2x
+    );
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -15,7 +25,11 @@
   :root[data-theme="dark"] & {
     background-image:
       linear-gradient(180deg, #161616 9.41%, rgba(22, 22, 22, 0.4) 105.47%),
-      image-set(url("/src/assets/bg_form_mobile_section.jpg") 1x, url("/src/assets/bg_form_mobile_section@2x.jpg") 2x);
+      image-set(
+        url('/src/assets/bg_form.jpg') 1x,
+        url('/src/assets/bg_form@2x.jpg') 2x
+      );
+
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -31,13 +45,19 @@
       font-size: 28px;
     }
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       margin-bottom: 60px;
 
       font-size: 40px;
       line-height: 128%;
 
       text-align: center;
+    }
+
+    @media (min-width: 1024px) {
+      width: 800px;
+      margin: 0 auto;
+      margin-bottom: 60px;
     }
   }
 
