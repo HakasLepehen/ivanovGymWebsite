@@ -35,7 +35,9 @@ if (menuToggle && mainNav) {
 
 // --- ФОРМА ---
 document.addEventListener('DOMContentLoaded', () => {
-  initModal();
+  if (!document.cookie?.length) {
+    initModal();
+  }
 
   const form = document.getElementById('consultationForm') as HTMLFormElement;
   const nameInput = document.getElementById('userName') as HTMLInputElement;
@@ -97,13 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (isValid) {
-      alert('Сайт еще в разработке, Вы можете получить консультацию через контакты указанные вверху страницы');
-      // Здесь код отправки данных на сервер (например, fetch)
-      console.log('Форма успешно отправлена!', {
+      sendConsultationRequest({
         name: nameInput.value,
         phone: phoneMask.value,
-        consent: consentCheckbox.checked,
-      });
+      })
 
       // Очистка формы после успешной отправки
       form.reset();
@@ -146,3 +145,21 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggle.setAttribute('aria-pressed', String(initialTheme === 'dark'));
   }
 });
+
+const sendConsultationRequest = async (data: any) => {
+  try {
+    return await fetch('https://localhost:5001/api/clientsRequest', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ...data
+      })
+    })
+  } catch (error: any) {
+    alert(error.message);
+    console.log(error);
+  }
+
+}
