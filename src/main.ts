@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const sendConsultationRequest = async (data: any) => {
     try {
-      const res: Response = await fetch('https://www.omni-fit.ru/api/clientsRequest', {
+      const res: Response = await fetch('https://app.omni-fit.ru/api/clientsRequest', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
