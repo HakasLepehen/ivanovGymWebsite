@@ -35,14 +35,19 @@ if (menuToggle && mainNav) {
 
 // --- ФОРМА ---
 document.addEventListener('DOMContentLoaded', () => {
-  initModal();
-
   const form = document.getElementById('consultationForm') as HTMLFormElement;
   const nameInput = document.getElementById('userName') as HTMLInputElement;
   const phoneInput = document.getElementById('userPhone') as HTMLInputElement;
   const consentCheckbox = document.getElementById('consent') as HTMLInputElement;
 
   const submitButton = form.querySelector('.form__button') as HTMLButtonElement;
+
+  setThemeSwitcher();
+
+  if (!document.cookie?.length) {
+    initModal();
+  }
+
   if (submitButton) {
     submitButton.disabled = !consentCheckbox.checked;
   }
@@ -97,17 +102,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (isValid) {
-      alert('Сайт еще в разработке, Вы можете получить консультацию через контакты указанные вверху страницы');
-      // Здесь код отправки данных на сервер (например, fetch)
-      console.log('Форма успешно отправлена!', {
+      sendConsultationRequest({
         name: nameInput.value,
         phone: phoneMask.value,
-        consent: consentCheckbox.checked,
-      });
-
-      // Очистка формы после успешной отправки
-      form.reset();
-      phoneMask.updateValue(); // Сброс маски к начальному виду
+      })
     }
   });
 
@@ -117,10 +115,42 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleError(input, false);
     });
   });
+
+  const sendConsultationRequest = async (data: any) => {
+    try {
+      const res: Response = await fetch('https://localhost:5001/api/clientsRequest', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...data
+        })
+      })
+
+      if (!res.ok) {
+        const { error } = await res.json();
+        throw error;
+      } else {
+        resetFormState();
+        alert('Благодарю за оставленную заявку, в ближайшее время я свяжусь с Вами.');
+      }
+    } catch (error: any) {
+      alert(`Не удалось отправить заявку, ошибка ${error}`);
+    }
+  }
+
+  const resetFormState = () => {
+    // Очистка формы после успешной отправки
+    form.reset();
+    phoneMask.updateValue(); // Сброс маски к начальному виду
+    if (!!submitButton) {
+      submitButton.disabled = true;
+    }
+  }
 });
 
-// --- ПЕРЕКЛЮЧЕНИЕ ТЕМЫ ---
-document.addEventListener('DOMContentLoaded', () => {
+const setThemeSwitcher = () => {
   const themeToggle = document.getElementById(
     'themeToggle',
   ) as HTMLButtonElement;
@@ -145,4 +175,4 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialTheme = document.documentElement.getAttribute('data-theme');
     themeToggle.setAttribute('aria-pressed', String(initialTheme === 'dark'));
   }
-});
+}
