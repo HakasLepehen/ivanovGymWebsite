@@ -75,7 +75,7 @@
     height: 100%;
     box-sizing: border-box;
 
-    padding: 48px 60px 40px;
+    padding: 20px 40px 40px;
 
     display: flex;
     flex-direction: column;
@@ -332,6 +332,7 @@
   }
 
   &__button {
+    width: inherit;
     @media (min-width: 768px) {
       padding: 28px 75px;
       min-width: 480px;
@@ -380,7 +381,7 @@
 
     &.is-active {
       .hero__menu-line:nth-child(1) {
-        transform: translateY(12.5px) rotate(45deg);
+        transform: translateY(11px) rotate(45deg);
       }
       .hero__menu-line:nth-child(2) {
         opacity: 0;
@@ -400,9 +401,9 @@
     transform: translate(-50%, -60%);
     opacity: 0;
     pointer-events: none;
-    width: calc(100% - 120px);
-    padding: 120px 40px 80px;
-    background-color: rgba(57, 255, 20, 0.1);
+    width: calc(100% - 90px);
+    padding: 120px 20px 80px;
+    background-color: rgba(57, 255, 20, .6);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     will-change: backdrop-filter;
@@ -413,7 +414,6 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
-    justify-content: center;
 
     &.is-active {
       transform: translate(-50%, 0);
@@ -428,7 +428,7 @@
     }
 
     &-item {
-      margin: 24px 0;
+      margin: 32px 0;
       opacity: 0;
       transform: translateY(20px);
       transition:
