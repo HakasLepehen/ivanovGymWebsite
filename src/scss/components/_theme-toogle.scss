@@ -1,8 +1,8 @@
 .theme-toggle {
   padding: 0;
   position: relative;
-  width: 100px;
-  height: 48px;
+  width: 88px;
+  height: 40px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
@@ -21,10 +21,10 @@
   &::before {
     content: '';
     position: absolute;
-    top: 5px;
-    left: 6px;
-    width: 38px;
-    height: 38px;
+    top: 6px;
+    left: 4px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     background: #ffffff; // Белая точка для светлой темы (слева)
 
@@ -62,9 +62,9 @@
   }
 
   .theme-toggle__icon--moon {
-    left: 34px;
+    left: 28px;
     opacity: 1;
-    transform: translateY(-50%) scale(1) rotate(0);
+    transform: translateY(-50%) scale(.77) rotate(0);
     color: #000000; // Черная луна на светлом/зеленом фоне
   }
 
@@ -85,7 +85,7 @@
     .theme-toggle__icon--sun {
       left: 0px;
       opacity: 1;
-      transform: translateY(-50%) scale(1) rotate(0);
+      transform: translateY(-50%) scale(.8) rotate(0);
       color: #ffffff;
     }
 

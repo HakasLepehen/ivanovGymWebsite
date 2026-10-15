@@ -20,7 +20,8 @@
     z-index: 0;
 
     @media (min-width: 768px) {
-      height: calc(100vh - 136px);
+      // height: calc(100vh - 136px);
+      // top: 0;
     }
 
     // Светлая тема (по умолчанию)
@@ -79,7 +80,9 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // ЗАПЛАТКА ЧТОБЫ НЕ УРОДЛИВО СМОТРЕЛСЯ ПЕРВЫЙ ЭКРАН
+    // надо работать с отступами контента во всем hero
+    justify-content: space-around;
 
     @media (min-width: 768px) {
       padding: 0;
@@ -93,12 +96,12 @@
         order: 1;
         position: static;
         width: 100%;
-        padding: 50px 0;
+        padding: 40px 0;
         opacity: 1;
         pointer-events: auto;
         transform: none;
 
-        background-color: var(--theme-background);
+        background-color: transparent;
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
         box-shadow: none;
@@ -174,8 +177,8 @@
         :root[data-theme='dark'] & {
           margin-left: 0;
           margin-top: 0;
-          margin-bottom: 40px;
-          padding: 28px 75px;
+          // margin-bottom: 40px;
+          // padding: 28px 75px;
         }
 
         @media (min-width: 1024px) {
@@ -203,7 +206,7 @@
           border-radius: 12px 0 0 12px;
           border: 1px solid transparent;
           border-right: 0;
-          padding: 34px 40px;
+          padding: 34px 24px;
           gap: 48px;
 
           background:
@@ -281,6 +284,9 @@
 
     @media (min-width: 768px) {
       order: 4;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
     }
 
     @media (min-width: 1024px) {
@@ -315,9 +321,10 @@
     @media (min-width: 768px) and (max-width: 1023px) {
       :root[data-theme='dark'] & {
         display: block;
-        max-width: 558px;
+        max-width: 600px;
         margin: 0 auto;
         text-align: center;
+        text-transform: none;
       }
     }
 
@@ -334,8 +341,8 @@
   &__button {
     width: inherit;
     @media (min-width: 768px) {
-      padding: 28px 75px;
-      min-width: 480px;
+      // padding: 28px 75px;
+      width: 480px;
       font-weight: 500;
       font-size: 24px;
       line-height: 108%;
@@ -346,6 +353,7 @@
       margin: 0;
       align-self: auto;
       flex-shrink: 0;
+      width: 560px;
     }
 
     @media (min-width: 768px) and (max-width: 1023px) {

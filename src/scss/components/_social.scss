@@ -11,35 +11,21 @@
     align-items: center;
     justify-content: center;
     width: 32px;
-    height: 32px;
+    aspect-ratio: 1/1;
     color: var(--theme-text);
     transition:
       color 0.3s ease,
       transform 0.3s ease;
     background-color: transparent;
 
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (min-width: 768px) {
       width: 40px;
-      height: 40px;
     }
 
     svg {
-      width: 32px;
-      height: 32px;
-
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (min-width: 768px) {
         width: 40px;
         height: 40px;
-      }
-    }
-
-    &-telegram {
-      width: 41px;
-      height: 35px;
-
-      svg {
-        width: 41px;
-        height: 35px;
       }
     }
 
